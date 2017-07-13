@@ -1,44 +1,6 @@
 
 ## Complete Code Example
 
-
-### /example-files/course-details.xsd
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://in28minutes.com/courses" 
-xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
-	
-	<xs:element name="GetCourseDetailsRequest">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name= "id" type="xs:integer"/>
-			</xs:sequence>	
-		</xs:complexType>
-	</xs:element>
-	
-	<xs:element name="GetCourseDetailsResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name= "CourseDetails" type="tns:CourseDetails"/>
-			</xs:sequence>	
-		</xs:complexType>
-	</xs:element>
-	
-	<xs:complexType name="CourseDetails">
-		<xs:sequence>
-			<xs:element name="id" type="xs:integer"/>
-			<xs:element name="name" type="xs:string"/>
-			<xs:element name="description" type="xs:string"/>
-		</xs:sequence>
-	</xs:complexType>
-	
-</xs:schema>
-```
----
-
 ### /example-files/Request.xml
 
 ```xml
