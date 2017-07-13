@@ -1,0 +1,9 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header />
+	<SOAP-ENV:Body>
+		<SOAP-ENV:Fault>
+			<faultcode xmlns:ns0="http://in28minutes.com/courses">ns0:001_COURSE_NOT_FOUND</faultcode>
+			<faultstring xml:lang="en">Invalid Course Id 1234</faultstring>
+		</SOAP-ENV:Fault>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

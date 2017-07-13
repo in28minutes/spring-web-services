@@ -1,0 +1,7 @@
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+	<Body>
+		<GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
+			<id>1</id>
+		</GetCourseDetailsRequest>
+	</Body>
+</Envelope>
