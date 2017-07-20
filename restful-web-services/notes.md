@@ -98,7 +98,7 @@ public org.springframework.web.servlet.ModelAndView org.springframework.boot.aut
 - Get request to a non existing resource. 
 - The response shows default error message structure auto configured by Spring Boot.
 
-```
+```json
 {
     "timestamp": "2017-07-19T05:28:37.534+0000",
     "status": 404,
@@ -111,7 +111,7 @@ public org.springframework.web.servlet.ModelAndView org.springframework.boot.aut
 #### GET http://localhost:8080/users/1000
 - Get request to a non existing resource. 
 - The response shows a Customized Message Structure
-```
+```json
 {
     "timestamp": "2017-07-19T05:31:01.961+0000",
     "message": "id-500",
@@ -122,14 +122,14 @@ public org.springframework.web.servlet.ModelAndView org.springframework.boot.aut
 #### POST http://localhost:8080/users with Validation Errors
 
 ##### Request
-```
+```json
 {
     "name": "R",
     "birthDate": "2000-07-19T04:29:24.054+0000"
 }
 ```
 ##### Response - 400 Bad Request
-```
+```json
 {
     "timestamp": "2017-07-19T09:00:27.912+0000",
     "message": "Validation Failed",
@@ -137,6 +137,7 @@ public org.springframework.web.servlet.ModelAndView org.springframework.boot.aut
 }
 ```
 #### GET http://localhost:8080/users/1 with HATEOAS
+```json
 {
     "id": 1,
     "name": "Adam",
@@ -147,7 +148,7 @@ public org.springframework.web.servlet.ModelAndView org.springframework.boot.aut
         }
     }
 }
-
+```
 #### Internationalization
 
 ##### Configuration 
@@ -164,7 +165,7 @@ public org.springframework.web.servlet.ModelAndView org.springframework.boot.aut
 
 #### GET http://localhost:8080/users
 - Accept application/xml
-```
+```xml
 <List>
     <item>
         <id>2</id>
@@ -189,7 +190,7 @@ public org.springframework.web.servlet.ModelAndView org.springframework.boot.aut
 - Content-Type : application/xml
 
 Request
-```
+```xml
 <item>
         <name>Ranga</name>
         <birthDate>2017-07-19T10:25:20.450+0000</birthDate>
@@ -202,7 +203,7 @@ Response
 ## Generating Swagger Documentation
 
 
-```
+```java
 	@Bean
 	public Docket api() {
 		HashSet<String> consumesAndProduces = new HashSet<String>(Arrays.asList("application/json", "application/xml"));
@@ -227,7 +228,7 @@ Response
 ```
 
 ### Resource Method description
-```
+```java
 	@GetMapping("/users/{id}")
 	@ApiOperation(value = "Finds Users by id",
     notes = "Also returns a link to retrieve all users with rel - all-users")
@@ -235,7 +236,7 @@ Response
 ```
 
 ### API Model
-```
+```java
 	@Size(min=2, message="Name should have atleast 2 characters")
 	@ApiModelProperty(notes = "Name should have atleast 2 characters")
 	private String name;
