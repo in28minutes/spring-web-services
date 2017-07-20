@@ -249,3 +249,24 @@ public class User {
 	private Date birthDate;
 ```
 
+#### Filtering
+
+##### Code
+```java
+@JsonIgnoreProperties(value={"field1"})
+public class SomeBean {
+	
+	private String field1;
+	
+	@JsonIgnore
+	private String field2;
+	
+	private String field3;
+
+```
+##### Response
+```json
+{
+    "field3": "value3"
+}
+```
