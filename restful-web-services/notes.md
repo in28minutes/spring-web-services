@@ -1,17 +1,34 @@
 ## Useful Links
 - POSTMAN - http://www.getpostman.com
 
-## Links used in the course
-- Resources
+## Links from course examples
+- Basic Resources
   - http://localhost:8080/hello-world
   - http://localhost:8080/hello-world-bean
   - http://localhost:8080/hello-world/path-variable/Ranga
   - http://localhost:8080/users/
   - http://localhost:8080/users/1
+- Filtering
+  - http://localhost:8080/filtering
+  - http://localhost:8080/filtering-list
+- Versioning
+  - http://localhost:8080/v1/person
+  - http://localhost:8080/v2/person
+  - http://localhost:8080/person/param
+     - params=[version=1]
+  - http://localhost:8080/person/param
+     - params=[version=2]
+  - http://localhost:8080/person/header
+     - headers=[X-API-VERSION=1]
+  - http://localhost:8080/person/header
+     - headers=[X-API-VERSION=2]
+  - http://localhost:8080/person/produces
+     - produces=[application/vnd.company.app-v1+json]
+  - http://localhost:8080/person/produces
+  	 - produces=[application/vnd.company.app-v2+json]
 - Swagger
   - http://localhost:8080/swagger-ui.html
   - http://localhost:8080/v2/api-docs
-  - https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X
 
 # RESTful Web Services
 
@@ -270,3 +287,27 @@ public class SomeBean {
     "field3": "value3"
 }
 ```
+
+### Versioning
+ - Media type versioning (a.k.a “content negotiation” or “accept header”)
+   - GitHub
+ - (Custom) headers versioning
+   - Microsoft
+ - URI Versioning
+   - Twitter
+ - Request Parameter versioning 
+   - Amazon
+ - Factors
+  - URI Pollution
+  - Misuse of HTTP Headers
+  - Caching
+  - Can we execute the request on the browser?
+  - API Documentation
+ - No Perfect Solution 
+
+#### More
+- https://www.mnot.net/blog/2011/10/25/web_api_versioning_smackdown
+- http://urthen.github.io/2013/05/09/ways-to-version-your-api/
+- http://stackoverflow.com/questions/389169/best-practices-for-api-versioning
+- http://www.lexicalscope.com/blog/2012/03/12/how-are-rest-apis-versioned/
+- https://www.3scale.net/2016/06/api-versioning-methods-a-brief-reference/
