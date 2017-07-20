@@ -204,27 +204,26 @@ Response
 
 
 ```java
+	public static final Contact DEFAULT_CONTACT = new Contact(
+			"Ranga Karanam", "http://www.in28minutes.com", "in28minutes@gmail.com");
+	
+	public static final ApiInfo DEFAULT_API_INFO = new ApiInfo(
+			"Awesome API Title", "Awesome API Description", "1.0",
+			"urn:tos", DEFAULT_CONTACT, 
+			"Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0");
+
+	private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = 
+			new HashSet<String>(Arrays.asList("application/json",
+					"application/xml"));
+
 	@Bean
 	public Docket api() {
-		HashSet<String> consumesAndProduces = new HashSet<String>(Arrays.asList("application/json", "application/xml"));
 		return new Docket(DocumentationType.SWAGGER_2)
-				.apiInfo(metadata())
-				.consumes(consumesAndProduces)
-				.produces(consumesAndProduces)
-				.pathMapping("/");
+				.apiInfo(DEFAULT_API_INFO)
+				.produces(DEFAULT_PRODUCES_AND_CONSUMES)
+				.consumes(DEFAULT_PRODUCES_AND_CONSUMES);
 	}
 
-	private ApiInfo metadata() {
-		return new ApiInfoBuilder()
-				.title("My awesome API")
-				.description("My awesome API Description")
-				.version("1.0")
-				.contact(new Contact("Ranga", "http://www.in28minutes.com",
-						"in28minutes@gmail.com"))
-				.license("Apache 2.0")
-				.licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
-				.build();
-	}
 ```
 
 ### Resource Method description

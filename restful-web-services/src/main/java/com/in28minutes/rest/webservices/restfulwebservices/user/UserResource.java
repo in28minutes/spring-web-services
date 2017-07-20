@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import io.swagger.annotations.ApiOperation;
-
 @RestController
 public class UserResource {
 
@@ -34,8 +32,6 @@ public class UserResource {
 	}
 
 	@GetMapping("/users/{id}")
-	@ApiOperation(value = "Finds Users by id",
-    notes = "Also returns a link to retrieve all users with rel - all-users")
 	public Resource<User> retrieveUser(@PathVariable int id) {
 		User user = service.findOne(id);
 		
