@@ -237,6 +237,10 @@ Response
 
 ### API Model
 ```java
+
+@ApiModel(value="User Details", description="Contains all details of a user")
+public class User {
+
 	@Size(min=2, message="Name should have atleast 2 characters")
 	@ApiModelProperty(notes = "Name should have atleast 2 characters")
 	private String name;
