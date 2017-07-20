@@ -311,3 +311,23 @@ public class SomeBean {
 - http://stackoverflow.com/questions/389169/best-practices-for-api-versioning
 - http://www.lexicalscope.com/blog/2012/03/12/how-are-rest-apis-versioned/
 - https://www.3scale.net/2016/06/api-versioning-methods-a-brief-reference/
+
+
+#### Table Structure
+
+create table user (
+id integer not null, 
+birth_date timestamp, 
+name varchar(255), 
+primary key (id)
+)
+
+
+
+
+
+
+
+
+
+
