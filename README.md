@@ -1,5 +1,24 @@
 # Spring Web Services
 
+## Todo
+ - Recording
+   - Spring Video - Editing and Re-recording
+   - RESTful Web Services Best Practices
+   - Intro Video for the course
+   - Overview Videos for the different sections
+   - Overview for each section - if needed?
+   - How to make best use of the course
+   - Importing a Maven Project Example
+ - Github Updates
+   - Create/Update Readme.md for all the different parts
+   - Include Step Wise Details
+   - Commit code for Spring, Spring Boot and JPA
+ - Editing & Cutting
+   - Editing for RESTful Web Services
+   - Cutting Videos for all parts
+ - Writing
+   - Description for the course on Udemy
+
 ## Learn how to create SOAP and RESTful web services with Spring and Spring Boot.
 
 * [Installing Eclipse, Maven and Java](#installing-tools)
@@ -15,14 +34,19 @@
 
 ## Installing Tools
 - PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
-- https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-- GIT Repository : https://github.com/in28minutes/getting-started-in-5-steps
+- Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
+- GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
 
 ## Running Examples
 - Download the zip or clone the Git repository.
 - Unzip the zip file (if you downloaded one)
 - Open Command Prompt and Change directory (cd) to folder containing pom.xml
-- Run command "mvn tomcat7:run"
+- Open Eclipse 
+   - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
+   - Select the right project
+- Choose the Spring Boot Application file (search for @SpringBootApplication)
+- Right Click on the file and Run as Java Application
+- You are all Set
 - For help : use our installation guide - https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf & https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 
 ## Course Overview

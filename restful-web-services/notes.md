@@ -1,34 +1,3 @@
-## Useful Links
-- POSTMAN - http://www.getpostman.com
-
-## Links from course examples
-- Basic Resources
-  - http://localhost:8080/hello-world
-  - http://localhost:8080/hello-world-bean
-  - http://localhost:8080/hello-world/path-variable/Ranga
-  - http://localhost:8080/users/
-  - http://localhost:8080/users/1
-- Filtering
-  - http://localhost:8080/filtering
-  - http://localhost:8080/filtering-list
-- Versioning
-  - http://localhost:8080/v1/person
-  - http://localhost:8080/v2/person
-  - http://localhost:8080/person/param
-     - params=[version=1]
-  - http://localhost:8080/person/param
-     - params=[version=2]
-  - http://localhost:8080/person/header
-     - headers=[X-API-VERSION=1]
-  - http://localhost:8080/person/header
-     - headers=[X-API-VERSION=2]
-  - http://localhost:8080/person/produces
-     - produces=[application/vnd.company.app-v1+json]
-  - http://localhost:8080/person/produces
-  	 - produces=[application/vnd.company.app-v2+json]
-- Swagger
-  - http://localhost:8080/swagger-ui.html
-  - http://localhost:8080/v2/api-docs
 
 # RESTful Web Services
 
@@ -315,19 +284,22 @@ public class SomeBean {
 
 #### Table Structure
 
+```sql
 create table user (
 id integer not null, 
 birth_date timestamp, 
 name varchar(255), 
 primary key (id)
-)
+);
 
+create table post (
+id integer not null, 
+description varchar(255), 
+user_id integer, 
+primary key (id)
+);
 
-
-
-
-
-
-
-
-
+alter table post 
+add constraint post_to_user_foreign_key
+foreign key (user_id) references user;
+```
