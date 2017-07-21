@@ -1,4 +1,5 @@
 # Spring Web Services
+Learn how to create awesome SOAP and RESTful web services with Spring and Spring Boot.
 
 ## Todo
  - Recording
@@ -19,8 +20,7 @@
  - Writing
    - Description for the course on Udemy
 
-## Learn how to create SOAP and RESTful web services with Spring and Spring Boot.
-
+## Overview
 * [Installing Eclipse, Maven and Java](#installing-tools)
 * [Running Examples](#running-examples)
 * [Course Overview](#course-overview)
@@ -32,27 +32,10 @@
   - [Find Us](#useful-links)
   - [Other Courses](#other-courses)
 
-## Installing Tools
-- PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
-- Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-- GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
-
-## Running Examples
-- Download the zip or clone the Git repository.
-- Unzip the zip file (if you downloaded one)
-- Open Command Prompt and Change directory (cd) to folder containing pom.xml
-- Open Eclipse 
-   - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
-   - Select the right project
-- Choose the Spring Boot Application file (search for @SpringBootApplication)
-- Right Click on the file and Run as Java Application
-- You are all Set
-- For help : use our installation guide - https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf & https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-
 ## Course Overview
 
 - I'm Ranga Karanam. I've so and so much experience with ...
-- In this course, You will learn the *** Framework step by step with (*** functionality) using (*** framework features)
+- In this course, You will learn the basic Framework step by step with (*** functionality) using (*** framework features)
 - You will learn the basics like *** and move on to the advanced concepts like ***.
 - You will use 
   - ... todo ...
@@ -61,59 +44,66 @@
 
 
 ### Introduction
-Developing your first application with XYZ Framework is fun.
 
-Introduction to XYZ Framework..
+Developing SOAP and RESTful web services is fun. The combination of Spring Boot, Spring Web MVC, Spring Web Services and JPA makes it even more fun.
 
-In this course, you will learn the basics developing a Basic Todo Management Application using XYZ Framework.
+There are two parts to this course - RESTful web services and SOAP Web Services
 
-You will build the application step by step - in more than 25 steps. This course would be a perfect first step as an introduction to XYZ Framework.
+Architectures are moving towards microservices. RESTful web services are the first step to developing great microservices. Spring Boot, in combination with Spring Web MVC (also called Spring REST) makes it easy to develop RESTful web services. 
 
-You will be using Spring (Dependency Management), Spring MVC, Spring Boot, Spring Security (Authentication and Authorization), BootStrap (Styling Pages), Maven (dependencies management), Eclipse (IDE) and Tomcat Embedded Web Server. We will help you set up each one of these.
+In this part of the course, you will learn the basics of RESTful web services developing resources for a social media application. You will learn to implement these resources with multiple features - versioning, exception handling, documentation (Swagger), basic authentication (Spring Security), filtering and HATEOAS. You will learn the best practices in designing RESTful web services.
 
-You will learn about
-- Topic No 1
-- Topic No 1
-- Topic No 1
-- Topic No 1
-- Topic No 1
+In this part of the course, you will be using Spring (Dependency Management), Spring MVC (or Spring REST), Spring Boot, Spring Security (Authentication and Authorization), Spring Boot Actuator (Monitoring), Swagger (Documentation), Maven (dependencies management), Eclipse (IDE), Postman (REST Services Client) and Tomcat Embedded Web Server. We will help you set up each one of these.
+
+While the use of SOAP Web Services is on the way down, there are still considerable number of web services using this approach. 
+
+In this part of the course, you will learn the basics of implementing SOAP Web Services developing a few web services for a course management application. You will learn to use a Contract first approach - defining XSD (XML Schema Definition) for your requests and responses. You will learn about WSDL (SOAP Header, SOAP Body and SOAP Fault), XSD (XML Schema Definition) and JAXB (Java API for XML Binding). You will implementing three SOAP web services with exception handling and basic security (with WS Security).
+
+In this part of the course, you will be using Spring (Dependency Management), Spring Web Services , Spring Boot, Spring Security (Authentication and Authorization), Swagger (Documentation), Maven (dependencies management), Eclipse (IDE), Wizdler (SOAP Services Chrome Plugin) and Tomcat Embedded Web Server. We will help you set up each one of these.
+
+You will learn
+- What is a Web Service?
+- What is a RESTful Web Service? 
+- How to implement RESTful Web Services with Spring and Spring Boot?
+- What are the best practices in designing RESTful Web Services? 
+- How to design Resources and GET, POST and DELETE operations?
+- How to implement Validation for RESTful Web Services? 
+- How to implement Exception Handling for RESTful Web Services? 
+- What is HATEOAS? How to implement HATEOAS for a Resource?
+- What are the different approach in versioning RESTful Services?
+- How to use Postman to execute RESTful Service Requests?
+- How to implement basic authentication with Spring Security?
+- How to implement filtering for RESTful Services?
+- How to monitor RESTful Services with Spring Boot Actuator?
+- How to document RESTful Web Services with Swagger?
+- How to connect RESTful Services to a backend with JPA?
+- What is a SOAP Web Service?
+- What is WSDL (Web Service Definition Language)? 
+- What is SOAP Header, SOAP Body and SOAP Fault?
+- What is an XSD (XML Schema Definition)? 
+- How to write an XSD for your requests and responses?
+- What is JAXB (Java API for XML Binding)?
+- What is an Endpoint?
+- What is a Contract First approach?
+- What are the different steps in building SOAP Web Services with Spring Web Services & Spring Boot?
+- How to build different SOAP Web services for GetCourseDetailsRequest, GetAllCourseDetailsRequest and DeleteCourseDetailsRequest? 
+- How to use Wizdler to execute SOAP Requests?
+- How to implement exception handling for SOAP Web Services?
+- How to implement basic security with WS Security for SOAP Web Services?
 
 ### Step Wise Details
-- Step 01: Learn to Dance
-- Step 02: 
-- Step 03: 
-- Step 04: 
-- Step 05: 
-- Step 06: 
-- Step 07: 
-- Step 08: 
-- Step 09: 
-- Step 10: 
-- Step 11: 
-- Step 12: 
-- Step 13: 
-- Step 14: 
-- Step 15: 
-- Step 16: 
-- Step 17: 
-- Step 18: 
-- Step 19: 
-- Step 20: 
-- Step 21: 
-- Step 22: 
-- Step 23: 
-- Step 24: 
-- Step 25: 
+Refer each steps
 
 ### Expectations
-- You should know ***. 
-- You should know ***. 
-- You are NOT expected to have any experience with Eclipse,Maven or Tomcat.
+- You should know Java. 
+- A basic understanding of developing web applications is a bonus but NOT mandatory. 
+- A basic understanding of Spring and Spring Boot is a bonus but NOT mandatory. We have seperate sections to introduce Spring and Spring Boot.
+- You are NOT expected to have any experience with Eclipse, Maven or Tomcat.
 - We will help you install Eclipse and get up and running with Maven and Tomcat.
 
 ## Let's have some fun
 - What are we waiting for?
-- Let's have some fun with *** in 25 Steps.
+- Let's have some fun with developing web services with spring in more than 75 Steps.
 - I had fun creating this course and hope you would too.
 - Thanks for your interest in Our Course 
   - I hope you’re as excited as I am!  
@@ -134,6 +124,24 @@ You will learn about
 - I had fun creating this course and I'm sure you had some fun too.
 - Good Luck and Bye from the team here at in28Minutes
 - Do not forget to leave us a review.
+
+
+## Installing Tools
+- PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
+- Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
+- GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
+
+## Running Examples
+- Download the zip or clone the Git repository.
+- Unzip the zip file (if you downloaded one)
+- Open Command Prompt and Change directory (cd) to folder containing pom.xml
+- Open Eclipse 
+   - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
+   - Select the right project
+- Choose the Spring Boot Application file (search for @SpringBootApplication)
+- Right Click on the file and Run as Java Application
+- You are all Set
+- For help : use our installation guide - https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf & https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 
 ## About in28Minutes
 - At in28Minutes, we ask ourselves one question everyday. How do we help you learn effectively - that is more quickly and retain more of what you have learnt?
