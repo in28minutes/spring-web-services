@@ -1,25 +1,6 @@
 # Spring Web Services
 Learn how to create awesome SOAP and RESTful web services with Spring and Spring Boot.
 
-## Todo
- - Recording
-   - Spring Video - Editing and Re-recording
-   - RESTful Web Services Best Practices
-   - Intro Video for the course
-   - Overview Videos for the different sections
-   - Overview for each section - if needed?
-   - How to make best use of the course
-   - Importing a Maven Project Example
- - Github Updates
-   - Create/Update Readme.md for all the different parts
-   - Include Step Wise Details
-   - Commit code for Spring, Spring Boot and JPA
- - Editing & Cutting
-   - Editing for RESTful Web Services
-   - Cutting Videos for all parts
- - Writing
-   - Description for the course on Udemy
-
 ## Overview
 * [Installing Eclipse, Maven and Java](#installing-tools)
 * [Running Examples](#running-examples)
@@ -31,17 +12,6 @@ Learn how to create awesome SOAP and RESTful web services with Spring and Spring
   - [Our Approach](#our-approach)
   - [Find Us](#useful-links)
   - [Other Courses](#other-courses)
-
-## Course Overview
-
-- I'm Ranga Karanam. I've so and so much experience with ...
-- In this course, You will learn the basic Framework step by step with (*** functionality) using (*** framework features)
-- You will learn the basics like *** and move on to the advanced concepts like ***.
-- You will use 
-  - ... todo ...
-  - Maven for dependency management, building and running the application in tomcat.
-  - Eclipse IDE.
-
 
 ### Introduction
 
@@ -101,35 +71,10 @@ Refer each steps
 - You are NOT expected to have any experience with Eclipse, Maven or Tomcat.
 - We will help you install Eclipse and get up and running with Maven and Tomcat.
 
-## Let's have some fun
-- What are we waiting for?
-- Let's have some fun with developing web services with spring in more than 75 Steps.
-- I had fun creating this course and hope you would too.
-- Thanks for your interest in Our Course 
-  - I hope you’re as excited as I am!  
-  - If you’re ready to learn more and sign up for the course, 
-  - go ahead and hit that Enroll button, 
-  - or take a test drive by using the Free Preview feature.  
-- See you in the course!
-
-## Exercises
-- TODO
-
-## Future Things To Do
-- TODO
-
-## Conclusion
-- Thats a lot of ground you have covered over the last so and so..
-- To find out more about *** use these References  
-- I had fun creating this course and I'm sure you had some fun too.
-- Good Luck and Bye from the team here at in28Minutes
-- Do not forget to leave us a review.
-
-
 ## Installing Tools
-- PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
 - Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 - GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
+- PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
 
 ## Running Examples
 - Download the zip or clone the Git repository.
@@ -141,7 +86,7 @@ Refer each steps
 - Choose the Spring Boot Application file (search for @SpringBootApplication)
 - Right Click on the file and Run as Java Application
 - You are all Set
-- For help : use our installation guide - https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf & https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
+- For help : use our installation guide - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 
 ## About in28Minutes
 - At in28Minutes, we ask ourselves one question everyday. How do we help you learn effectively - that is more quickly and retain more of what you have learnt?
@@ -181,3 +126,51 @@ Refer each steps
 - [Facebook](http://facebook.com/in28minutes)
 - [Twitter](http://twitter.com/in28minutes)
 - [Google Plus](https://plus.google.com/u/3/110861829188024231119)
+
+## Todo
+ - Recording
+   - Spring Video - Editing and Re-recording DONE
+   - RESTful Web Services Best Practices
+   - Intro Video for the course
+   - Intro Video for SOAP Section of the Course
+   - Intro Video for RESTful Web Services Section of the Course
+   - Conclusion Video for the course
+   - Overview Videos for the different sections
+   - How to make best use of the course
+     - Course GIT Repository Overview
+     - Recommended path through the course
+   - Importing a Maven Project Example
+ - Github Updates
+   - Create/Update Readme.md for all the different parts
+   - Include Step Wise Details
+   - Commit code for Spring, Spring Boot and JPA
+ - Editing & Cutting
+   - Editing for RESTful Web Services
+   - Cutting Videos for all parts
+ - Writing
+   - Description for the course on Udemy
+ - Update the in28minutes course template repository with the needed stuff
+
+## Let's have some fun
+- What are we waiting for?
+- Let's have some fun with developing web services with spring in more than 75 Steps.
+- I had fun creating this course and hope you would too.
+- Thanks for your interest in Our Course 
+  - I hope you’re as excited as I am!  
+  - If you’re ready to learn more and sign up for the course, 
+  - go ahead and hit that Enroll button, 
+  - or take a test drive by using the Free Preview feature.  
+- See you in the course!
+
+## Exercises
+- TODO
+
+## Future Things To Do
+- TODO
+
+## Conclusion
+- Thats a lot of ground you have covered over the last so and so..
+- To find out more about *** use these References  
+- I had fun creating this course and I'm sure you had some fun too.
+- Good Luck and Bye from the team here at in28Minutes
+- Do not forget to leave us a review.
