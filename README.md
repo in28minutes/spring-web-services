@@ -31,34 +31,16 @@ In this part of the course, you will learn the basics of implementing SOAP Web S
 
 In this part of the course, you will be using Spring (Dependency Management), Spring Web Services , Spring Boot, Spring Security (Authentication and Authorization), Swagger (Documentation), Maven (dependencies management), Eclipse (IDE), Wizdler (SOAP Services Chrome Plugin) and Tomcat Embedded Web Server. We will help you set up each one of these.
 
-You will learn
-- What is a Web Service?
-- What is a RESTful Web Service? 
-- How to implement RESTful Web Services with Spring and Spring Boot?
-- What are the best practices in designing RESTful Web Services? 
-- How to design Resources and GET, POST and DELETE operations?
-- How to implement Validation for RESTful Web Services? 
-- How to implement Exception Handling for RESTful Web Services? 
-- What is HATEOAS? How to implement HATEOAS for a Resource?
-- What are the different approach in versioning RESTful Services?
-- How to use Postman to execute RESTful Service Requests?
-- How to implement basic authentication with Spring Security?
-- How to implement filtering for RESTful Services?
-- How to monitor RESTful Services with Spring Boot Actuator?
-- How to document RESTful Web Services with Swagger?
-- How to connect RESTful Services to a backend with JPA?
-- What is a SOAP Web Service?
-- What is WSDL (Web Service Definition Language)? 
-- What is SOAP Header, SOAP Body and SOAP Fault?
-- What is an XSD (XML Schema Definition)? 
-- How to write an XSD for your requests and responses?
-- What is JAXB (Java API for XML Binding)?
-- What is an Endpoint?
-- What is a Contract First approach?
-- What are the different steps in building SOAP Web Services with Spring Web Services & Spring Boot?
-- How to build different SOAP Web services for GetCourseDetailsRequest, GetAllCourseDetailsRequest and DeleteCourseDetailsRequest? 
-- How to use Wizdler to execute SOAP Requests?
-- How to implement exception handling for SOAP Web Services?
+### You will learn
+- You will be able to develop and design RESTful web services
+- You will understand the best practices in designing RESTful web services
+- You will be able to develop and design SOAP web services
+- You will understand how to connect RESTful Services to a backend with JPA
+- You will understand how to implement Exception Handling, Validation, HATEOAS and filtering for RESTful Web Services.
+- You will understand how to version your RESTful Web Services
+- You will understand how to monitor RESTful Services with Spring Boot Actuator
+- You will understand how to document RESTful Web Services with Swagger
+- You will understand about WSDL, SOAP Header, SOAP Body, SOAP Fault, XSD, JAXB and EndPoint
 - How to implement basic security with WS Security for SOAP Web Services?
 
 ### Step Wise Details
