@@ -220,7 +220,7 @@ java.lang.NoClassDefFoundError: javax/wsdl/extensions/ExtensibilityElement
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.M2</version>
+		<version>2.0.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -1658,7 +1658,7 @@ xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.M2</version>
+		<version>2.0.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
