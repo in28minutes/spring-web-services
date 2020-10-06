@@ -4,6 +4,9 @@ Learn how to create awesome SOAP and RESTful web services with Spring and Spring
 
 [![Image](https://www.springboottutorial.com/images/Course-Master-Java-Web-Services-and-REST-API-with-Spring-Boot.png "Master Java Web Services and REST API with Spring Boot")](https://www.udemy.com/course/spring-web-services-tutorial/)
 
+Spring Boot is a Framework from “The Spring Team” to ease the bootstrapping and development of new Spring Applications.
+It provides defaults for code and annotation configuration to quick start new Spring projects within no time. It follows “Opinionated Defaults Configuration” Approach to avoid lot of boilerplate code and configuration to improve Development, Unit Test and Integration Test Process.
+
 
 ## Overview
 * [Installing Eclipse, Maven and Java](#installing-tools)
