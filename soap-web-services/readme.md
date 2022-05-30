@@ -2967,3 +2967,16 @@ public class SoapCourseManagementApplicationTests {
 }
 ```
 ---
+
+
+## Debugging Help
+
+If you get an error `java.lang.IllegalAccessError: class com.sun.xml.wss.impl.SecurableSoapMessage cannot access class com.sun.org.apache.xml.internal.security.Init`, We can open up the package for unnamed modules
+
+
+--add-opens=java.xml.crypto/com.sun.org.apache.xml.internal.security=ALL-UNNAMED
+
+
+In Eclipse, you can configure VM arguments:
+![alt text](add-opens-1.png)
+![alt text](add-opens-2.png)
