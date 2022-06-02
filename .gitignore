@@ -25,7 +25,10 @@
 mvnw
 target
 *.DS_Store
-
+.idea
+soap-web-services/*.iml
+spring-in-10-steps/*.iml
+springboot-in-10-steps/*.iml
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 bin
