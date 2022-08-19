@@ -4,6 +4,12 @@ Learn how to create awesome SOAP and RESTful web services with Spring and Spring
 
 [![Image](https://www.springboottutorial.com/images/Course-Master-Java-Web-Services-and-REST-API-with-Spring-Boot.png "Master Java Web Services and REST API with Spring Boot")](https://www.udemy.com/course/spring-web-services-tutorial/)
 
+## Launch MySQL as Docker Container
+
+```
+docker run --detach --env MYSQL_ROOT_PASSWORD=dummypassword --env MYSQL_USER=social-media-user --env MYSQL_PASSWORD=dummypassword --env MYSQL_DATABASE=social-media-database --name mysql --publish 3306:3306 mysql:8-oracle
+```
+
 
 ## Overview
 * [Installing Eclipse, Maven and Java](#installing-tools)
