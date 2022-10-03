@@ -1,19 +1,3 @@
-## Getting Started with JPA and Hibernate
-
-- Step 01 - Getting Started with JPA and Hibernate - Goals
-- Step 02 - Setting up New Spring Boot Project for JPA and Hibernate
-- Step 03 - Launching up H2 Console and Creating Course Table in H2
-- Step 04 - Getting Started with Spring JDBC
-- Step 05 - Inserting Hardcoded Data using Spring JDBC
-- Step 06 - Inserting and Deleting Data using Spring JDBC
-- Step 07 - Querying Data using Spring JDBC
-- Step 08 - Getting Started with JPA and EntityManager
-- Step 09 - Exploring the Magic of JPA
-- Step 10 - Getting Started with Spring Data JPA
-- Step 11 - Exploring features of Spring Data JPA
-- Step 12 - Understanding difference between Hibernate and JPA
-
-
 <!---
 Current Directory : /Users/ranga/Ranga/git/00.courses/getting-started-for-beginners-v2/jpa-and-hibernate-in-10-steps
 -->
