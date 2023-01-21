@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-M2</version> <!-- Changed from 2.7.0 -->
+		<version>3.0.1</version> <!-- Changed from 2.7.0 -->
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -54,31 +54,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.wss</groupId>
-			<artifactId>xws-security</artifactId>
-			<version>3.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.xml.crypto</groupId>
-					<artifactId>xmldsig</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>		
-		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<!--
-             // This one also works for Spring Boot 3.0.x
-             // https://docs.openrewrite.org/reference/recipes/java/migrate/javaxactivationmigrationtojakartaactivation
-             <dependency>
-			        <groupId>com.sun.activation</groupId>
-			        <artifactId>jakarta.activation</artifactId>
-			        <version>1.2.2</version>
-			    </dependency>-->
-		
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -100,7 +76,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>1.6</version>
+				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>xjc</id>
@@ -110,25 +86,13 @@
 					</execution>
 				</executions>
 				<configuration>
-					<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
+					<sources>
+						<source>${project.basedir}/src/main/resources/course-details.xsd</source>
+					</sources>
 					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
 					<clearOutputDir>false</clearOutputDir>
 				</configuration>
-			    <dependencies>
-			        <dependency>
-			        <groupId>javax.activation</groupId>
-			        <artifactId>activation</artifactId>
-			        <version>1.1.1</version>
-			        </dependency>
-             <!--
-             // This one also works for Spring Boot 3.0.x
-             // https://docs.openrewrite.org/reference/recipes/java/migrate/javaxactivationmigrationtojakartaactivation
-             <dependency>
-			        <groupId>com.sun.activation</groupId>
-			        <artifactId>jakarta.activation</artifactId>
-			        <version>1.2.2</version>
-			    </dependency>-->
-			    </dependencies>
+
 			</plugin>
 			<!-- JAXB2 Maven Plugin -->
 			<!-- XSD Source Folder -->

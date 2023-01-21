@@ -1,60 +1,66 @@
-
 ## Complete Code Example
 
 ### /example-files/Request-Security.xml
 
 ```xml
+
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-	<Header>
-		<wsse:Security
-			xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-			mustUnderstand="1">
-			<wsse:UsernameToken>
-				<wsse:Username>user</wsse:Username>
-				<wsse:Password>password</wsse:Password>
-			</wsse:UsernameToken>
-		</wsse:Security>
-	</Header>
-	<Body>
-		<GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
-			<id>1</id>
-		</GetCourseDetailsRequest>
-	</Body>
+    <Header>
+        <wsse:Security
+                xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                mustUnderstand="1">
+            <wsse:UsernameToken>
+                <wsse:Username>user</wsse:Username>
+                <wsse:Password>password</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </Header>
+    <Body>
+        <GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
+            <id>1</id>
+        </GetCourseDetailsRequest>
+    </Body>
 </Envelope>
 ```
+
 ---
 
 ### /example-files/Request.xml
 
 ```xml
+
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-	<Body>
-		<GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
-			<id>1</id>
-		</GetCourseDetailsRequest>
-	</Body>
+    <Body>
+        <GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
+            <id>1</id>
+        </GetCourseDetailsRequest>
+    </Body>
 </Envelope>
 ```
+
 ---
 
 ### /example-files/Response-Fault.xml
 
 ```xml
+
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-	<SOAP-ENV:Header />
-	<SOAP-ENV:Body>
-		<SOAP-ENV:Fault>
-			<faultcode xmlns:ns0="http://in28minutes.com/courses">ns0:001_COURSE_NOT_FOUND</faultcode>
-			<faultstring xml:lang="en">Invalid Course Id 1234</faultstring>
-		</SOAP-ENV:Fault>
-	</SOAP-ENV:Body>
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode xmlns:ns0="http://in28minutes.com/courses">ns0:001_COURSE_NOT_FOUND</faultcode>
+            <faultstring xml:lang="en">Invalid Course Id 1234</faultstring>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ---
 
 ### /example-files/Response.xml
 
 ```xml
+
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Header/>
     <SOAP-ENV:Body>
@@ -68,6 +74,7 @@
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ---
 
 ### /pom.xml
@@ -75,156 +82,143 @@
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.in28minutes.soap.webservices</groupId>
-	<artifactId>soap-course-management</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <groupId>com.in28minutes.soap.webservices</groupId>
+    <artifactId>soap-course-management</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-	<name>soap-course-management</name>
-	<description>Demo project for Spring Boot</description>
+    <name>soap-course-management</name>
+    <description>Demo project for Spring Boot</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>17</java.version>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>wsdl4j</groupId>
-			<artifactId>wsdl4j</artifactId>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework.ws</groupId>
-			<artifactId>spring-ws-security</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.security</groupId>
-					<artifactId>spring-security-core</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.wss</groupId>
-			<artifactId>xws-security</artifactId>
-			<version>3.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.xml.crypto</groupId>
-					<artifactId>xmldsig</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-security</artifactId>
+            <version>3.1.3</version> <!--Added for Spring Boot 3.0.x-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>1.6</version>
-				<executions>
-					<execution>
-						<id>xjc</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
-					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-					<clearOutputDir>false</clearOutputDir>
-				</configuration>
-			</plugin>
-			<!-- JAXB2 Maven Plugin -->
-			<!-- XSD Source Folder -->
-			<!-- Java Class Source Folder -->
-			<!-- clear folder -> false -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <source>${project.basedir}/src/main/resources/course-details.xsd</source>
+                    </sources>
+                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                    <clearOutputDir>false</clearOutputDir>
+                </configuration>
+            </plugin>
+            <!-- JAXB2 Maven Plugin -->
+            <!-- XSD Source Folder -->
+            <!-- Java Class Source Folder -->
+            <!-- clear folder -> false -->
 
-	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+        </plugins>
+    </build>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 
 </project>
@@ -235,47 +229,47 @@
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for CourseDetails complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType name="CourseDetails">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CourseDetails"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CourseDetails", propOrder = {
-    "id",
-    "name",
-    "description"
+        "id",
+        "name",
+        "description"
 })
 public class CourseDetails {
 
@@ -287,7 +281,7 @@ public class CourseDetails {
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      */
     public int getId() {
         return id;
@@ -295,7 +289,7 @@ public class CourseDetails {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      */
     public void setId(int value) {
         this.id = value;
@@ -303,11 +297,11 @@ public class CourseDetails {
 
     /**
      * Gets the value of the name property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getName() {
         return name;
@@ -315,11 +309,11 @@ public class CourseDetails {
 
     /**
      * Sets the value of the name property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setName(String value) {
         this.name = value;
@@ -327,11 +321,11 @@ public class CourseDetails {
 
     /**
      * Gets the value of the description property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getDescription() {
         return description;
@@ -339,11 +333,11 @@ public class CourseDetails {
 
     /**
      * Sets the value of the description property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setDescription(String value) {
         this.description = value;
@@ -351,49 +345,50 @@ public class CourseDetails {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/DeleteCourseDetailsRequest.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+        "id"
 })
 @XmlRootElement(name = "DeleteCourseDetailsRequest")
 public class DeleteCourseDetailsRequest {
@@ -402,7 +397,7 @@ public class DeleteCourseDetailsRequest {
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      */
     public int getId() {
         return id;
@@ -410,7 +405,7 @@ public class DeleteCourseDetailsRequest {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      */
     public void setId(int value) {
         this.id = value;
@@ -418,64 +413,67 @@ public class DeleteCourseDetailsRequest {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/DeleteCourseDetailsResponse.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlSchemaType;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="status" type="{http://in28minutes.com/courses}Status"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="status" type="{http://in28minutes.com/courses}Status"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "status"
+        "status"
 })
 @XmlRootElement(name = "DeleteCourseDetailsResponse")
 public class DeleteCourseDetailsResponse {
 
     @XmlElement(required = true)
+    @XmlSchemaType(name = "string")
     protected Status status;
 
     /**
      * Gets the value of the status property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Status }
-     *     
+     *
      */
     public Status getStatus() {
         return status;
@@ -483,11 +481,11 @@ public class DeleteCourseDetailsResponse {
 
     /**
      * Sets the value of the status property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Status }
-     *     
+     *
      */
     public void setStatus(Status value) {
         this.status = value;
@@ -495,42 +493,43 @@ public class DeleteCourseDetailsResponse {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/GetAllCourseDetailsRequest.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
@@ -540,16 +539,17 @@ public class GetAllCourseDetailsRequest {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/GetAllCourseDetailsResponse.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
@@ -557,35 +557,36 @@ package com.in28minutes.courses;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="CourseDetails" type="{http://in28minutes.com/courses}CourseDetails" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="CourseDetails" type="{http://in28minutes.com/courses}CourseDetails" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "courseDetails"
+        "courseDetails"
 })
 @XmlRootElement(name = "GetAllCourseDetailsResponse")
 public class GetAllCourseDetailsResponse {
@@ -595,25 +596,25 @@ public class GetAllCourseDetailsResponse {
 
     /**
      * Gets the value of the courseDetails property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
+     * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the courseDetails property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCourseDetails().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CourseDetails }
-     * 
-     * 
+     *
+     *
      */
     public List<CourseDetails> getCourseDetails() {
         if (courseDetails == null) {
@@ -624,49 +625,50 @@ public class GetAllCourseDetailsResponse {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/GetCourseDetailsRequest.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+        "id"
 })
 @XmlRootElement(name = "GetCourseDetailsRequest")
 public class GetCourseDetailsRequest {
@@ -675,7 +677,7 @@ public class GetCourseDetailsRequest {
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      */
     public int getId() {
         return id;
@@ -683,7 +685,7 @@ public class GetCourseDetailsRequest {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      */
     public void setId(int value) {
         this.id = value;
@@ -697,44 +699,44 @@ public class GetCourseDetailsRequest {
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="CourseDetails" type="{http://in28minutes.com/courses}CourseDetails"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="CourseDetails" type="{http://in28minutes.com/courses}CourseDetails"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "courseDetails"
+        "courseDetails"
 })
 @XmlRootElement(name = "GetCourseDetailsResponse")
 public class GetCourseDetailsResponse {
@@ -744,11 +746,11 @@ public class GetCourseDetailsResponse {
 
     /**
      * Gets the value of the courseDetails property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CourseDetails }
-     *     
+     *
      */
     public CourseDetails getCourseDetails() {
         return courseDetails;
@@ -756,11 +758,11 @@ public class GetCourseDetailsResponse {
 
     /**
      * Sets the value of the courseDetails property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CourseDetails }
-     *     
+     *
      */
     public void setCourseDetails(CourseDetails value) {
         this.courseDetails = value;
@@ -774,16 +776,16 @@ public class GetCourseDetailsResponse {
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -798,7 +800,7 @@ import javax.xml.bind.annotation.XmlRegistry;
  * type definitions, element declarations and model 
  * groups.  Factory methods for each of these are 
  * provided in this class.
- * 
+ *
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -806,22 +808,30 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.in28minutes.courses
-     * 
+     *
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link GetAllCourseDetailsResponse }
-     * 
+     * Create an instance of {@link GetCourseDetailsRequest }
+     *
      */
-    public GetAllCourseDetailsResponse createGetAllCourseDetailsResponse() {
-        return new GetAllCourseDetailsResponse();
+    public GetCourseDetailsRequest createGetCourseDetailsRequest() {
+        return new GetCourseDetailsRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetCourseDetailsResponse }
+     *
+     */
+    public GetCourseDetailsResponse createGetCourseDetailsResponse() {
+        return new GetCourseDetailsResponse();
     }
 
     /**
      * Create an instance of {@link CourseDetails }
-     * 
+     *
      */
     public CourseDetails createCourseDetails() {
         return new CourseDetails();
@@ -829,45 +839,38 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetAllCourseDetailsRequest }
-     * 
+     *
      */
     public GetAllCourseDetailsRequest createGetAllCourseDetailsRequest() {
         return new GetAllCourseDetailsRequest();
     }
 
     /**
+     * Create an instance of {@link GetAllCourseDetailsResponse }
+     *
+     */
+    public GetAllCourseDetailsResponse createGetAllCourseDetailsResponse() {
+        return new GetAllCourseDetailsResponse();
+    }
+
+    /**
      * Create an instance of {@link DeleteCourseDetailsRequest }
-     * 
+     *
      */
     public DeleteCourseDetailsRequest createDeleteCourseDetailsRequest() {
         return new DeleteCourseDetailsRequest();
     }
 
     /**
-     * Create an instance of {@link GetCourseDetailsRequest }
-     * 
-     */
-    public GetCourseDetailsRequest createGetCourseDetailsRequest() {
-        return new GetCourseDetailsRequest();
-    }
-
-    /**
      * Create an instance of {@link DeleteCourseDetailsResponse }
-     * 
+     *
      */
     public DeleteCourseDetailsResponse createDeleteCourseDetailsResponse() {
         return new DeleteCourseDetailsResponse();
     }
 
-    /**
-     * Create an instance of {@link GetCourseDetailsResponse }
-     * 
-     */
-    public GetCourseDetailsResponse createGetCourseDetailsResponse() {
-        return new GetCourseDetailsResponse();
-    }
-
 }
+
 ```
 ---
 
@@ -875,13 +878,13 @@ public class ObjectFactory {
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://in28minutes.com/courses", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://in28minutes.com/courses", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.in28minutes.courses;
 ```
 ---
@@ -890,33 +893,32 @@ package com.in28minutes.courses;
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlEnum;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for Status.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
  * <pre>
- * &lt;simpleType name="Status">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="SUCCESS"/>
- *     &lt;enumeration value="FAILURE"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
+ * &lt;simpleType name="Status"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="SUCCESS"/&gt;
+ *     &lt;enumeration value="FAILURE"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
  * </pre>
- * 
+ *
  */
 @XmlType(name = "Status")
 @XmlEnum
@@ -935,6 +937,7 @@ public enum Status {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/bean/Course.java
@@ -943,49 +946,50 @@ public enum Status {
 package com.in28minutes.soap.webservices.soapcoursemanagement.soap.bean;
 
 public class Course {
-	private int id;
-	private String name;
-	private String description;
-	
-	
-	public Course(int id, String name, String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-	}
+    private int id;
+    private String name;
+    private String description;
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Course(int id, String name, String description) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public String toString() {
-		return String.format("Course [id=%s, name=%s, description=%s]", id, name, description);
-	}
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Course [id=%s, name=%s, description=%s]", id, name, description);
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/CourseDetailsEndpoint.java
@@ -1001,13 +1005,6 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.in28minutes.courses.CourseDetails;
-import com.in28minutes.courses.DeleteCourseDetailsRequest;
-import com.in28minutes.courses.DeleteCourseDetailsResponse;
-import com.in28minutes.courses.GetAllCourseDetailsRequest;
-import com.in28minutes.courses.GetAllCourseDetailsResponse;
-import com.in28minutes.courses.GetCourseDetailsRequest;
-import com.in28minutes.courses.GetCourseDetailsResponse;
 import com.in28minutes.soap.webservices.soapcoursemanagement.soap.bean.Course;
 import com.in28minutes.soap.webservices.soapcoursemanagement.soap.exception.CourseNotFoundException;
 import com.in28minutes.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService;
@@ -1016,82 +1013,83 @@ import com.in28minutes.soap.webservices.soapcoursemanagement.soap.service.Course
 @Endpoint
 public class CourseDetailsEndpoint {
 
-	@Autowired
-	CourseDetailsService service;
+    @Autowired
+    CourseDetailsService service;
 
-	// method
-	// input - GetCourseDetailsRequest
-	// output - GetCourseDetailsResponse
+    // method
+    // input - GetCourseDetailsRequest
+    // output - GetCourseDetailsResponse
 
-	// http://in28minutes.com/courses
-	// GetCourseDetailsRequest
-	@PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetCourseDetailsRequest")
-	@ResponsePayload
-	public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) {
+    // http://in28minutes.com/courses
+    // GetCourseDetailsRequest
+    @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetCourseDetailsRequest")
+    @ResponsePayload
+    public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) {
 
-		Course course = service.findById(request.getId());
+        Course course = service.findById(request.getId());
 
-		if (course == null)
-			throw new CourseNotFoundException("Invalid Course Id " + request.getId());
+        if (course == null)
+            throw new CourseNotFoundException("Invalid Course Id " + request.getId());
 
-		return mapCourseDetails(course);
-	}
+        return mapCourseDetails(course);
+    }
 
-	private GetCourseDetailsResponse mapCourseDetails(Course course) {
-		GetCourseDetailsResponse response = new GetCourseDetailsResponse();
-		response.setCourseDetails(mapCourse(course));
-		return response;
-	}
+    private GetCourseDetailsResponse mapCourseDetails(Course course) {
+        GetCourseDetailsResponse response = new GetCourseDetailsResponse();
+        response.setCourseDetails(mapCourse(course));
+        return response;
+    }
 
-	private GetAllCourseDetailsResponse mapAllCourseDetails(List<Course> courses) {
-		GetAllCourseDetailsResponse response = new GetAllCourseDetailsResponse();
-		for (Course course : courses) {
-			CourseDetails mapCourse = mapCourse(course);
-			response.getCourseDetails().add(mapCourse);
-		}
-		return response;
-	}
+    private GetAllCourseDetailsResponse mapAllCourseDetails(List<Course> courses) {
+        GetAllCourseDetailsResponse response = new GetAllCourseDetailsResponse();
+        for (Course course : courses) {
+            CourseDetails mapCourse = mapCourse(course);
+            response.getCourseDetails().add(mapCourse);
+        }
+        return response;
+    }
 
-	private CourseDetails mapCourse(Course course) {
-		CourseDetails courseDetails = new CourseDetails();
+    private CourseDetails mapCourse(Course course) {
+        CourseDetails courseDetails = new CourseDetails();
 
-		courseDetails.setId(course.getId());
+        courseDetails.setId(course.getId());
 
-		courseDetails.setName(course.getName());
+        courseDetails.setName(course.getName());
 
-		courseDetails.setDescription(course.getDescription());
-		return courseDetails;
-	}
+        courseDetails.setDescription(course.getDescription());
+        return courseDetails;
+    }
 
-	@PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetAllCourseDetailsRequest")
-	@ResponsePayload
-	public GetAllCourseDetailsResponse processAllCourseDetailsRequest(
-			@RequestPayload GetAllCourseDetailsRequest request) {
+    @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetAllCourseDetailsRequest")
+    @ResponsePayload
+    public GetAllCourseDetailsResponse processAllCourseDetailsRequest(
+            @RequestPayload GetAllCourseDetailsRequest request) {
 
-		List<Course> courses = service.findAll();
+        List<Course> courses = service.findAll();
 
-		return mapAllCourseDetails(courses);
-	}
+        return mapAllCourseDetails(courses);
+    }
 
-	@PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "DeleteCourseDetailsRequest")
-	@ResponsePayload
-	public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {
+    @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "DeleteCourseDetailsRequest")
+    @ResponsePayload
+    public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {
 
-		Status status = service.deleteById(request.getId());
+        Status status = service.deleteById(request.getId());
 
-		DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
-		response.setStatus(mapStatus(status));
+        DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
+        response.setStatus(mapStatus(status));
 
-		return response;
-	}
+        return response;
+    }
 
-	private com.in28minutes.courses.Status mapStatus(Status status) {
-		if (status == Status.FAILURE)
-			return com.in28minutes.courses.Status.FAILURE;
-		return com.in28minutes.courses.Status.SUCCESS;
-	}
+    private com.in28minutes.courses.Status mapStatus(Status status) {
+        if (status == Status.FAILURE)
+            return com.in28minutes.courses.Status.FAILURE;
+        return com.in28minutes.courses.Status.SUCCESS;
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/exception/CourseNotFoundException.java
@@ -1105,13 +1103,14 @@ import org.springframework.ws.soap.server.endpoint.annotation.SoapFault;
 @SoapFault(faultCode = FaultCode.CUSTOM, customFaultCode = "{http://in28minutes.com/courses}001_COURSE_NOT_FOUND")
 public class CourseNotFoundException extends RuntimeException {
 
-	private static final long serialVersionUID = 3518170101751491969L;
+    private static final long serialVersionUID = 3518170101751491969L;
 
-	public CourseNotFoundException(String message) {
-		super(message);
-	}
+    public CourseNotFoundException(String message) {
+        super(message);
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/service/CourseDetailsService.java
@@ -1129,56 +1128,57 @@ import com.in28minutes.soap.webservices.soapcoursemanagement.soap.bean.Course;
 
 @Component
 public class CourseDetailsService {
-	
-	public enum Status {
-		SUCCESS, FAILURE;
-	}
 
-	private static List<Course> courses = new ArrayList<>();
+    public enum Status {
+        SUCCESS, FAILURE;
+    }
 
-	static {
-		Course course1 = new Course(1, "Spring", "10 Steps");
-		courses.add(course1);
+    private static List<Course> courses = new ArrayList<>();
 
-		Course course2 = new Course(2, "Spring MVC", "10 Examples");
-		courses.add(course2);
+    static {
+        Course course1 = new Course(1, "Spring", "10 Steps");
+        courses.add(course1);
 
-		Course course3 = new Course(3, "Spring Boot", "6K Students");
-		courses.add(course3);
+        Course course2 = new Course(2, "Spring MVC", "10 Examples");
+        courses.add(course2);
 
-		Course course4 = new Course(4, "Maven", "Most popular maven course on internet!");
-		courses.add(course4);
-	}
+        Course course3 = new Course(3, "Spring Boot", "6K Students");
+        courses.add(course3);
 
-	// course - 1
-	public Course findById(int id) {
-		for (Course course : courses) {
-			if (course.getId() == id)
-				return course;
-		}
-		return null;
-	}
+        Course course4 = new Course(4, "Maven", "Most popular maven course on internet!");
+        courses.add(course4);
+    }
 
-	// courses
-	public List<Course> findAll() {
-		return courses;
-	}
+    // course - 1
+    public Course findById(int id) {
+        for (Course course : courses) {
+            if (course.getId() == id)
+                return course;
+        }
+        return null;
+    }
 
-	public Status deleteById(int id) {
-		Iterator<Course> iterator = courses.iterator();
-		while (iterator.hasNext()) {
-			Course course = iterator.next();
-			if (course.getId() == id) {
-				iterator.remove();
-				return Status.SUCCESS;
-			}
-		}
-		return Status.FAILURE;
-	}
+    // courses
+    public List<Course> findAll() {
+        return courses;
+    }
 
-	// updating course & new course
+    public Status deleteById(int id) {
+        Iterator<Course> iterator = courses.iterator();
+        while (iterator.hasNext()) {
+            Course course = iterator.next();
+            if (course.getId() == id) {
+                iterator.remove();
+                return Status.SUCCESS;
+            }
+        }
+        return Status.FAILURE;
+    }
+
+    // updating course & new course
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/WebServiceConfig.java
@@ -1208,63 +1208,57 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 // Spring Configuration
 @Configuration
-public class WebServiceConfig extends WsConfigurerAdapter{
-	// MessageDispatcherServlet
-	// ApplicationContext
-	// url -> /ws/*
+public class WebServiceConfig extends WsConfigurerAdapter {
+    // MessageDispatcherServlet
+    // ApplicationContext
+    // url -> /ws/*
 
-	@Bean
-	public ServletRegistrationBean messageDispatcherServlet(ApplicationContext context) {
-		MessageDispatcherServlet messageDispatcherServlet = new MessageDispatcherServlet();
-		messageDispatcherServlet.setApplicationContext(context);
-		messageDispatcherServlet.setTransformWsdlLocations(true);
-		return new ServletRegistrationBean(messageDispatcherServlet, "/ws/*");
-	}
+    @Bean
+    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext context) {
+        MessageDispatcherServlet messageDispatcherServlet = new MessageDispatcherServlet();
+        messageDispatcherServlet.setApplicationContext(context);
+        messageDispatcherServlet.setTransformWsdlLocations(true);
+        return new ServletRegistrationBean<>(messageDispatcherServlet, "/ws/*");
+    }
 
-	// /ws/courses.wsdl
-	// course-details.xsd
-	@Bean(name = "courses")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema coursesSchema) {
-		DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-		definition.setPortTypeName("CoursePort");
-		definition.setTargetNamespace("http://in28minutes.com/courses");
-		definition.setLocationUri("/ws");
-		definition.setSchema(coursesSchema);
-		return definition;
-	}
+    // /ws/courses.wsdl
+    // course-details.xsd
+    @Bean(name = "courses")
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema coursesSchema) {
+        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+        definition.setPortTypeName("CoursePort");
+        definition.setTargetNamespace("http://in28minutes.com/courses");
+        definition.setLocationUri("/ws");
+        definition.setSchema(coursesSchema);
+        return definition;
+    }
 
-	@Bean
-	public XsdSchema coursesSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
-	}
-	
+    @Bean
+    public XsdSchema coursesSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
+    }
 
-	//XwsSecurityInterceptor
-	@Bean
-	public XwsSecurityInterceptor securityInterceptor(){
-		XwsSecurityInterceptor securityInterceptor = new XwsSecurityInterceptor();
-		//Callback Handler -> SimplePasswordValidationCallbackHandler
-		securityInterceptor.setCallbackHandler(callbackHandler());
-		//Security Policy -> securityPolicy.xml
-		securityInterceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
-		return securityInterceptor;
-	}
-	
-	@Bean
-	public SimplePasswordValidationCallbackHandler callbackHandler() {
-		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
-		handler.setUsersMap(Collections.singletonMap("user", "password"));
-		return handler;
-	}
 
-	//Interceptors.add -> XwsSecurityInterceptor
-	@Override
-	public void addInterceptors(List<EndpointInterceptor> interceptors) {
-		interceptors.add(securityInterceptor());
-	}
+    //XwsSecurityInterceptor
+    @Bean
+    public Wss4jSecurityInterceptor securityInterceptor() {
+        Wss4jSecurityInterceptor securityInterceptor = new Wss4jSecurityInterceptor();
+        securityInterceptor.setSecurementActions("UsernameToken");
+        securityInterceptor.setSecurementUsername("user");
+        securityInterceptor.setSecurementPassword("password");
+
+        return securityInterceptor;
+    }
+
+    //Interceptors.add -> XwsSecurityInterceptor
+    @Override
+    public void addInterceptors(List<EndpointInterceptor> interceptors) {
+        interceptors.add(securityInterceptor());
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/SoapCourseManagementApplication.java
@@ -1278,17 +1272,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SoapCourseManagementApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SoapCourseManagementApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SoapCourseManagementApplication.class, args);
+    }
 }
 ```
+
 ---
 
 ### /src/main/resources/application.properties
 
 ```properties
 ```
+
 ---
 
 ### /src/main/resources/course-details.xsd
@@ -1363,18 +1359,20 @@ public class SoapCourseManagementApplication {
 
 </xs:schema>
 ```
+
 ---
 
 ### /src/main/resources/securityPolicy.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xwss:SecurityConfiguration 
-	xmlns:xwss="http://java.sun.com/xml/ns/xwss/config">
-	<xwss:RequireUsernameToken
-		passwordDigestRequired="false" nonceRequired="false" />
+<xwss:SecurityConfiguration
+        xmlns:xwss="http://java.sun.com/xml/ns/xwss/config">
+    <xwss:RequireUsernameToken
+            passwordDigestRequired="false" nonceRequired="false"/>
 </xwss:SecurityConfiguration>
 ```
+
 ---
 
 ### /src/test/java/com/in28minutes/soap/webservices/soapcoursemanagement/SoapCourseManagementApplicationTests.java
@@ -1382,25 +1380,27 @@ public class SoapCourseManagementApplication {
 ```java
 package com.in28minutes.soap.webservices.soapcoursemanagement;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+package com.in28minutes.soap.webservices.soapcoursemanagement;
 
-@RunWith(SpringRunner.class)
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class SoapCourseManagementApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }
 ```
+
 ---
 
 ## Complete Code Example
-
 
 ### /example-files/course-details.xsd
 
@@ -1437,62 +1437,70 @@ xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
 	
 </xs:schema>
 ```
+
 ---
 
 ### /example-files/Request-Security.xml
 
 ```xml
+
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-	<Header>
-		<wsse:Security
-			xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-			mustUnderstand="1">
-			<wsse:UsernameToken>
-				<wsse:Username>user</wsse:Username>
-				<wsse:Password>password</wsse:Password>
-			</wsse:UsernameToken>
-		</wsse:Security>
-	</Header>
-	<Body>
-		<GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
-			<id>1</id>
-		</GetCourseDetailsRequest>
-	</Body>
+    <Header>
+        <wsse:Security
+                xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                mustUnderstand="1">
+            <wsse:UsernameToken>
+                <wsse:Username>user</wsse:Username>
+                <wsse:Password>password</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </Header>
+    <Body>
+        <GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
+            <id>1</id>
+        </GetCourseDetailsRequest>
+    </Body>
 </Envelope>
 ```
+
 ---
 
 ### /example-files/Request.xml
 
 ```xml
+
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-	<Body>
-		<GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
-			<id>1</id>
-		</GetCourseDetailsRequest>
-	</Body>
+    <Body>
+        <GetCourseDetailsRequest xmlns="http://in28minutes.com/courses">
+            <id>1</id>
+        </GetCourseDetailsRequest>
+    </Body>
 </Envelope>
 ```
+
 ---
 
 ### /example-files/Response-Fault.xml
 
 ```xml
+
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-	<SOAP-ENV:Header />
-	<SOAP-ENV:Body>
-		<SOAP-ENV:Fault>
-			<faultcode xmlns:ns0="http://in28minutes.com/courses">ns0:001_COURSE_NOT_FOUND</faultcode>
-			<faultstring xml:lang="en">Invalid Course Id 1234</faultstring>
-		</SOAP-ENV:Fault>
-	</SOAP-ENV:Body>
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode xmlns:ns0="http://in28minutes.com/courses">ns0:001_COURSE_NOT_FOUND</faultcode>
+            <faultstring xml:lang="en">Invalid Course Id 1234</faultstring>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ---
 
 ### /example-files/Response.xml
 
 ```xml
+
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Header/>
     <SOAP-ENV:Body>
@@ -1506,6 +1514,7 @@ xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ---
 
 ### /pom.xml
@@ -1513,186 +1522,172 @@ xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.in28minutes.soap.webservices</groupId>
-	<artifactId>soap-course-management</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <groupId>com.in28minutes.soap.webservices</groupId>
+    <artifactId>soap-course-management</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-	<name>soap-course-management</name>
-	<description>Demo project for Spring Boot</description>
+    <name>soap-course-management</name>
+    <description>Demo project for Spring Boot</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>17</java.version>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>wsdl4j</groupId>
-			<artifactId>wsdl4j</artifactId>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework.ws</groupId>
-			<artifactId>spring-ws-security</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.security</groupId>
-					<artifactId>spring-security-core</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.wss</groupId>
-			<artifactId>xws-security</artifactId>
-			<version>3.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.xml.crypto</groupId>
-					<artifactId>xmldsig</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-security</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>1.6</version>
-				<executions>
-					<execution>
-						<id>xjc</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
-					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-					<clearOutputDir>false</clearOutputDir>
-				</configuration>
-			</plugin>
-			<!-- JAXB2 Maven Plugin -->
-			<!-- XSD Source Folder -->
-			<!-- Java Class Source Folder -->
-			<!-- clear folder -> false -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <source>${project.basedir}/src/main/resources/course-details.xsd</source>
+                    </sources>
+                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                    <clearOutputDir>false</clearOutputDir>
+                </configuration>
+            </plugin>
+            <!-- JAXB2 Maven Plugin -->
+            <!-- XSD Source Folder -->
+            <!-- Java Class Source Folder -->
+            <!-- clear folder -> false -->
 
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 
-	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 
 </project>
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/CourseDetails.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for CourseDetails complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="CourseDetails">
  *   &lt;complexContent>
@@ -1706,14 +1701,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CourseDetails", propOrder = {
-    "id",
-    "name",
-    "description"
+        "id",
+        "name",
+        "description"
 })
 public class CourseDetails {
 
@@ -1725,7 +1720,7 @@ public class CourseDetails {
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      */
     public int getId() {
         return id;
@@ -1733,7 +1728,7 @@ public class CourseDetails {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      */
     public void setId(int value) {
         this.id = value;
@@ -1741,11 +1736,11 @@ public class CourseDetails {
 
     /**
      * Gets the value of the name property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getName() {
         return name;
@@ -1753,11 +1748,11 @@ public class CourseDetails {
 
     /**
      * Sets the value of the name property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setName(String value) {
         this.name = value;
@@ -1765,11 +1760,11 @@ public class CourseDetails {
 
     /**
      * Gets the value of the description property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getDescription() {
         return description;
@@ -1777,11 +1772,11 @@ public class CourseDetails {
 
     /**
      * Sets the value of the description property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setDescription(String value) {
         this.description = value;
@@ -1789,32 +1784,33 @@ public class CourseDetails {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/DeleteCourseDetailsRequest.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -1826,12 +1822,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+        "id"
 })
 @XmlRootElement(name = "DeleteCourseDetailsRequest")
 public class DeleteCourseDetailsRequest {
@@ -1840,7 +1836,7 @@ public class DeleteCourseDetailsRequest {
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      */
     public int getId() {
         return id;
@@ -1848,7 +1844,7 @@ public class DeleteCourseDetailsRequest {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      */
     public void setId(int value) {
         this.id = value;
@@ -1856,33 +1852,34 @@ public class DeleteCourseDetailsRequest {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/DeleteCourseDetailsResponse.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -1894,12 +1891,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "status"
+        "status"
 })
 @XmlRootElement(name = "DeleteCourseDetailsResponse")
 public class DeleteCourseDetailsResponse {
@@ -1909,11 +1906,11 @@ public class DeleteCourseDetailsResponse {
 
     /**
      * Gets the value of the status property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Status }
-     *     
+     *
      */
     public Status getStatus() {
         return status;
@@ -1921,11 +1918,11 @@ public class DeleteCourseDetailsResponse {
 
     /**
      * Sets the value of the status property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Status }
-     *     
+     *
      */
     public void setStatus(Status value) {
         this.status = value;
@@ -1933,32 +1930,33 @@ public class DeleteCourseDetailsResponse {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/GetAllCourseDetailsRequest.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -1967,8 +1965,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
@@ -1978,16 +1976,17 @@ public class GetAllCourseDetailsRequest {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/GetAllCourseDetailsResponse.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
@@ -1995,18 +1994,19 @@ package com.in28minutes.courses;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -2018,12 +2018,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "courseDetails"
+        "courseDetails"
 })
 @XmlRootElement(name = "GetAllCourseDetailsResponse")
 public class GetAllCourseDetailsResponse {
@@ -2033,25 +2033,25 @@ public class GetAllCourseDetailsResponse {
 
     /**
      * Gets the value of the courseDetails property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the courseDetails property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCourseDetails().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CourseDetails }
-     * 
-     * 
+     *
+     *
      */
     public List<CourseDetails> getCourseDetails() {
         if (courseDetails == null) {
@@ -2062,32 +2062,33 @@ public class GetAllCourseDetailsResponse {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/GetCourseDetailsRequest.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -2099,12 +2100,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+        "id"
 })
 @XmlRootElement(name = "GetCourseDetailsRequest")
 public class GetCourseDetailsRequest {
@@ -2113,7 +2114,7 @@ public class GetCourseDetailsRequest {
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      */
     public int getId() {
         return id;
@@ -2121,7 +2122,7 @@ public class GetCourseDetailsRequest {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      */
     public void setId(int value) {
         this.id = value;
@@ -2129,33 +2130,34 @@ public class GetCourseDetailsRequest {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/GetCourseDetailsResponse.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -2167,12 +2169,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "courseDetails"
+        "courseDetails"
 })
 @XmlRootElement(name = "GetCourseDetailsResponse")
 public class GetCourseDetailsResponse {
@@ -2182,11 +2184,11 @@ public class GetCourseDetailsResponse {
 
     /**
      * Gets the value of the courseDetails property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CourseDetails }
-     *     
+     *
      */
     public CourseDetails getCourseDetails() {
         return courseDetails;
@@ -2194,11 +2196,11 @@ public class GetCourseDetailsResponse {
 
     /**
      * Sets the value of the courseDetails property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CourseDetails }
-     *     
+     *
      */
     public void setCourseDetails(CourseDetails value) {
         this.courseDetails = value;
@@ -2206,22 +2208,23 @@ public class GetCourseDetailsResponse {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/ObjectFactory.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -2236,7 +2239,7 @@ import javax.xml.bind.annotation.XmlRegistry;
  * type definitions, element declarations and model 
  * groups.  Factory methods for each of these are 
  * provided in this class.
- * 
+ *
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -2244,14 +2247,14 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.in28minutes.courses
-     * 
+     *
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link GetAllCourseDetailsResponse }
-     * 
+     *
      */
     public GetAllCourseDetailsResponse createGetAllCourseDetailsResponse() {
         return new GetAllCourseDetailsResponse();
@@ -2259,7 +2262,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CourseDetails }
-     * 
+     *
      */
     public CourseDetails createCourseDetails() {
         return new CourseDetails();
@@ -2267,7 +2270,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetAllCourseDetailsRequest }
-     * 
+     *
      */
     public GetAllCourseDetailsRequest createGetAllCourseDetailsRequest() {
         return new GetAllCourseDetailsRequest();
@@ -2275,7 +2278,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteCourseDetailsRequest }
-     * 
+     *
      */
     public DeleteCourseDetailsRequest createDeleteCourseDetailsRequest() {
         return new DeleteCourseDetailsRequest();
@@ -2283,7 +2286,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetCourseDetailsRequest }
-     * 
+     *
      */
     public GetCourseDetailsRequest createGetCourseDetailsRequest() {
         return new GetCourseDetailsRequest();
@@ -2291,7 +2294,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteCourseDetailsResponse }
-     * 
+     *
      */
     public DeleteCourseDetailsResponse createDeleteCourseDetailsResponse() {
         return new DeleteCourseDetailsResponse();
@@ -2299,7 +2302,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetCourseDetailsResponse }
-     * 
+     *
      */
     public GetCourseDetailsResponse createGetCourseDetailsResponse() {
         return new GetCourseDetailsResponse();
@@ -2307,43 +2310,45 @@ public class ObjectFactory {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/package-info.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://in28minutes.com/courses", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://in28minutes.com/courses", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.in28minutes.courses;
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/courses/Status.java
 
 ```java
 //
-// This file was generated by the JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 
-// See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// This file was generated by the Eclipse Implementation of JAXB, v3.0.0 
+// See https://eclipse-ee4j.github.io/jaxb-ri 
 // Any modifications to this file will be lost upon recompilation of the source schema. 
-// Generated on: 2017.07.13 at 04:11:43 PM IST 
+// Generated on: 2023.01.21 at 01:50:44 PM IST 
 //
 
 
 package com.in28minutes.courses;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlEnum;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for Status.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -2354,7 +2359,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
+ *
  */
 @XmlType(name = "Status")
 @XmlEnum
@@ -2373,6 +2378,7 @@ public enum Status {
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/bean/Course.java
@@ -2381,49 +2387,50 @@ public enum Status {
 package com.in28minutes.soap.webservices.soapcoursemanagement.soap.bean;
 
 public class Course {
-	private int id;
-	private String name;
-	private String description;
-	
-	
-	public Course(int id, String name, String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-	}
+    private int id;
+    private String name;
+    private String description;
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Course(int id, String name, String description) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public String toString() {
-		return String.format("Course [id=%s, name=%s, description=%s]", id, name, description);
-	}
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Course [id=%s, name=%s, description=%s]", id, name, description);
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/CourseDetailsEndpoint.java
@@ -2439,13 +2446,6 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.in28minutes.courses.CourseDetails;
-import com.in28minutes.courses.DeleteCourseDetailsRequest;
-import com.in28minutes.courses.DeleteCourseDetailsResponse;
-import com.in28minutes.courses.GetAllCourseDetailsRequest;
-import com.in28minutes.courses.GetAllCourseDetailsResponse;
-import com.in28minutes.courses.GetCourseDetailsRequest;
-import com.in28minutes.courses.GetCourseDetailsResponse;
 import com.in28minutes.soap.webservices.soapcoursemanagement.soap.bean.Course;
 import com.in28minutes.soap.webservices.soapcoursemanagement.soap.exception.CourseNotFoundException;
 import com.in28minutes.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService;
@@ -2454,82 +2454,83 @@ import com.in28minutes.soap.webservices.soapcoursemanagement.soap.service.Course
 @Endpoint
 public class CourseDetailsEndpoint {
 
-	@Autowired
-	CourseDetailsService service;
+    @Autowired
+    CourseDetailsService service;
 
-	// method
-	// input - GetCourseDetailsRequest
-	// output - GetCourseDetailsResponse
+    // method
+    // input - GetCourseDetailsRequest
+    // output - GetCourseDetailsResponse
 
-	// http://in28minutes.com/courses
-	// GetCourseDetailsRequest
-	@PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetCourseDetailsRequest")
-	@ResponsePayload
-	public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) {
+    // http://in28minutes.com/courses
+    // GetCourseDetailsRequest
+    @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetCourseDetailsRequest")
+    @ResponsePayload
+    public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) {
 
-		Course course = service.findById(request.getId());
+        Course course = service.findById(request.getId());
 
-		if (course == null)
-			throw new CourseNotFoundException("Invalid Course Id " + request.getId());
+        if (course == null)
+            throw new CourseNotFoundException("Invalid Course Id " + request.getId());
 
-		return mapCourseDetails(course);
-	}
+        return mapCourseDetails(course);
+    }
 
-	private GetCourseDetailsResponse mapCourseDetails(Course course) {
-		GetCourseDetailsResponse response = new GetCourseDetailsResponse();
-		response.setCourseDetails(mapCourse(course));
-		return response;
-	}
+    private GetCourseDetailsResponse mapCourseDetails(Course course) {
+        GetCourseDetailsResponse response = new GetCourseDetailsResponse();
+        response.setCourseDetails(mapCourse(course));
+        return response;
+    }
 
-	private GetAllCourseDetailsResponse mapAllCourseDetails(List<Course> courses) {
-		GetAllCourseDetailsResponse response = new GetAllCourseDetailsResponse();
-		for (Course course : courses) {
-			CourseDetails mapCourse = mapCourse(course);
-			response.getCourseDetails().add(mapCourse);
-		}
-		return response;
-	}
+    private GetAllCourseDetailsResponse mapAllCourseDetails(List<Course> courses) {
+        GetAllCourseDetailsResponse response = new GetAllCourseDetailsResponse();
+        for (Course course : courses) {
+            CourseDetails mapCourse = mapCourse(course);
+            response.getCourseDetails().add(mapCourse);
+        }
+        return response;
+    }
 
-	private CourseDetails mapCourse(Course course) {
-		CourseDetails courseDetails = new CourseDetails();
+    private CourseDetails mapCourse(Course course) {
+        CourseDetails courseDetails = new CourseDetails();
 
-		courseDetails.setId(course.getId());
+        courseDetails.setId(course.getId());
 
-		courseDetails.setName(course.getName());
+        courseDetails.setName(course.getName());
 
-		courseDetails.setDescription(course.getDescription());
-		return courseDetails;
-	}
+        courseDetails.setDescription(course.getDescription());
+        return courseDetails;
+    }
 
-	@PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetAllCourseDetailsRequest")
-	@ResponsePayload
-	public GetAllCourseDetailsResponse processAllCourseDetailsRequest(
-			@RequestPayload GetAllCourseDetailsRequest request) {
+    @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetAllCourseDetailsRequest")
+    @ResponsePayload
+    public GetAllCourseDetailsResponse processAllCourseDetailsRequest(
+            @RequestPayload GetAllCourseDetailsRequest request) {
 
-		List<Course> courses = service.findAll();
+        List<Course> courses = service.findAll();
 
-		return mapAllCourseDetails(courses);
-	}
+        return mapAllCourseDetails(courses);
+    }
 
-	@PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "DeleteCourseDetailsRequest")
-	@ResponsePayload
-	public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {
+    @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "DeleteCourseDetailsRequest")
+    @ResponsePayload
+    public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {
 
-		Status status = service.deleteById(request.getId());
+        Status status = service.deleteById(request.getId());
 
-		DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
-		response.setStatus(mapStatus(status));
+        DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
+        response.setStatus(mapStatus(status));
 
-		return response;
-	}
+        return response;
+    }
 
-	private com.in28minutes.courses.Status mapStatus(Status status) {
-		if (status == Status.FAILURE)
-			return com.in28minutes.courses.Status.FAILURE;
-		return com.in28minutes.courses.Status.SUCCESS;
-	}
+    private com.in28minutes.courses.Status mapStatus(Status status) {
+        if (status == Status.FAILURE)
+            return com.in28minutes.courses.Status.FAILURE;
+        return com.in28minutes.courses.Status.SUCCESS;
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/exception/CourseNotFoundException.java
@@ -2543,13 +2544,14 @@ import org.springframework.ws.soap.server.endpoint.annotation.SoapFault;
 @SoapFault(faultCode = FaultCode.CUSTOM, customFaultCode = "{http://in28minutes.com/courses}001_COURSE_NOT_FOUND")
 public class CourseNotFoundException extends RuntimeException {
 
-	private static final long serialVersionUID = 3518170101751491969L;
+    private static final long serialVersionUID = 3518170101751491969L;
 
-	public CourseNotFoundException(String message) {
-		super(message);
-	}
+    public CourseNotFoundException(String message) {
+        super(message);
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/service/CourseDetailsService.java
@@ -2567,56 +2569,57 @@ import com.in28minutes.soap.webservices.soapcoursemanagement.soap.bean.Course;
 
 @Component
 public class CourseDetailsService {
-	
-	public enum Status {
-		SUCCESS, FAILURE;
-	}
 
-	private static List<Course> courses = new ArrayList<>();
+    public enum Status {
+        SUCCESS, FAILURE;
+    }
 
-	static {
-		Course course1 = new Course(1, "Spring", "10 Steps");
-		courses.add(course1);
+    private static List<Course> courses = new ArrayList<>();
 
-		Course course2 = new Course(2, "Spring MVC", "10 Examples");
-		courses.add(course2);
+    static {
+        Course course1 = new Course(1, "Spring", "10 Steps");
+        courses.add(course1);
 
-		Course course3 = new Course(3, "Spring Boot", "6K Students");
-		courses.add(course3);
+        Course course2 = new Course(2, "Spring MVC", "10 Examples");
+        courses.add(course2);
 
-		Course course4 = new Course(4, "Maven", "Most popular maven course on internet!");
-		courses.add(course4);
-	}
+        Course course3 = new Course(3, "Spring Boot", "6K Students");
+        courses.add(course3);
 
-	// course - 1
-	public Course findById(int id) {
-		for (Course course : courses) {
-			if (course.getId() == id)
-				return course;
-		}
-		return null;
-	}
+        Course course4 = new Course(4, "Maven", "Most popular maven course on internet!");
+        courses.add(course4);
+    }
 
-	// courses
-	public List<Course> findAll() {
-		return courses;
-	}
+    // course - 1
+    public Course findById(int id) {
+        for (Course course : courses) {
+            if (course.getId() == id)
+                return course;
+        }
+        return null;
+    }
 
-	public Status deleteById(int id) {
-		Iterator<Course> iterator = courses.iterator();
-		while (iterator.hasNext()) {
-			Course course = iterator.next();
-			if (course.getId() == id) {
-				iterator.remove();
-				return Status.SUCCESS;
-			}
-		}
-		return Status.FAILURE;
-	}
+    // courses
+    public List<Course> findAll() {
+        return courses;
+    }
 
-	// updating course & new course
+    public Status deleteById(int id) {
+        Iterator<Course> iterator = courses.iterator();
+        while (iterator.hasNext()) {
+            Course course = iterator.next();
+            if (course.getId() == id) {
+                iterator.remove();
+                return Status.SUCCESS;
+            }
+        }
+        return Status.FAILURE;
+    }
+
+    // updating course & new course
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/soap/WebServiceConfig.java
@@ -2646,63 +2649,64 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 // Spring Configuration
 @Configuration
-public class WebServiceConfig extends WsConfigurerAdapter{
-	// MessageDispatcherServlet
-	// ApplicationContext
-	// url -> /ws/*
+public class WebServiceConfig extends WsConfigurerAdapter {
+    // MessageDispatcherServlet
+    // ApplicationContext
+    // url -> /ws/*
 
-	@Bean
-	public ServletRegistrationBean messageDispatcherServlet(ApplicationContext context) {
-		MessageDispatcherServlet messageDispatcherServlet = new MessageDispatcherServlet();
-		messageDispatcherServlet.setApplicationContext(context);
-		messageDispatcherServlet.setTransformWsdlLocations(true);
-		return new ServletRegistrationBean(messageDispatcherServlet, "/ws/*");
-	}
+    @Bean
+    public ServletRegistrationBean messageDispatcherServlet(ApplicationContext context) {
+        MessageDispatcherServlet messageDispatcherServlet = new MessageDispatcherServlet();
+        messageDispatcherServlet.setApplicationContext(context);
+        messageDispatcherServlet.setTransformWsdlLocations(true);
+        return new ServletRegistrationBean(messageDispatcherServlet, "/ws/*");
+    }
 
-	// /ws/courses.wsdl
-	// course-details.xsd
-	@Bean(name = "courses")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema coursesSchema) {
-		DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-		definition.setPortTypeName("CoursePort");
-		definition.setTargetNamespace("http://in28minutes.com/courses");
-		definition.setLocationUri("/ws");
-		definition.setSchema(coursesSchema);
-		return definition;
-	}
+    // /ws/courses.wsdl
+    // course-details.xsd
+    @Bean(name = "courses")
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema coursesSchema) {
+        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+        definition.setPortTypeName("CoursePort");
+        definition.setTargetNamespace("http://in28minutes.com/courses");
+        definition.setLocationUri("/ws");
+        definition.setSchema(coursesSchema);
+        return definition;
+    }
 
-	@Bean
-	public XsdSchema coursesSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
-	}
-	
+    @Bean
+    public XsdSchema coursesSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
+    }
 
-	//XwsSecurityInterceptor
-	@Bean
-	public XwsSecurityInterceptor securityInterceptor(){
-		XwsSecurityInterceptor securityInterceptor = new XwsSecurityInterceptor();
-		//Callback Handler -> SimplePasswordValidationCallbackHandler
-		securityInterceptor.setCallbackHandler(callbackHandler());
-		//Security Policy -> securityPolicy.xml
-		securityInterceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
-		return securityInterceptor;
-	}
-	
-	@Bean
-	public SimplePasswordValidationCallbackHandler callbackHandler() {
-		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
-		handler.setUsersMap(Collections.singletonMap("user", "password"));
-		return handler;
-	}
 
-	//Interceptors.add -> XwsSecurityInterceptor
-	@Override
-	public void addInterceptors(List<EndpointInterceptor> interceptors) {
-		interceptors.add(securityInterceptor());
-	}
+    //XwsSecurityInterceptor
+    @Bean
+    public XwsSecurityInterceptor securityInterceptor() {
+        XwsSecurityInterceptor securityInterceptor = new XwsSecurityInterceptor();
+        //Callback Handler -> SimplePasswordValidationCallbackHandler
+        securityInterceptor.setCallbackHandler(callbackHandler());
+        //Security Policy -> securityPolicy.xml
+        securityInterceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
+        return securityInterceptor;
+    }
+
+    @Bean
+    public SimplePasswordValidationCallbackHandler callbackHandler() {
+        SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
+        handler.setUsersMap(Collections.singletonMap("user", "password"));
+        return handler;
+    }
+
+    //Interceptors.add -> XwsSecurityInterceptor
+    @Override
+    public void addInterceptors(List<EndpointInterceptor> interceptors) {
+        interceptors.add(securityInterceptor());
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/soap/webservices/soapcoursemanagement/SoapCourseManagementApplication.java
@@ -2716,17 +2720,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SoapCourseManagementApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SoapCourseManagementApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SoapCourseManagementApplication.class, args);
+    }
 }
 ```
+
 ---
 
 ### /src/main/resources/application.properties
 
 ```properties
 ```
+
 ---
 
 ### /src/main/resources/course-details.xsd
@@ -2801,18 +2807,20 @@ public class SoapCourseManagementApplication {
 
 </xs:schema>
 ```
+
 ---
 
 ### /src/main/resources/securityPolicy.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xwss:SecurityConfiguration 
-	xmlns:xwss="http://java.sun.com/xml/ns/xwss/config">
-	<xwss:RequireUsernameToken
-		passwordDigestRequired="false" nonceRequired="false" />
+<xwss:SecurityConfiguration
+        xmlns:xwss="http://java.sun.com/xml/ns/xwss/config">
+    <xwss:RequireUsernameToken
+            passwordDigestRequired="false" nonceRequired="false"/>
 </xwss:SecurityConfiguration>
 ```
+
 ---
 
 ### /src/test/java/com/in28minutes/soap/webservices/soapcoursemanagement/SoapCourseManagementApplicationTests.java
@@ -2829,10 +2837,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SoapCourseManagementApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }
 ```
+
 ---
