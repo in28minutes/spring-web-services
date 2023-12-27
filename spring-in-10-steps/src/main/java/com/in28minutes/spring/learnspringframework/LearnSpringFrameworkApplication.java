@@ -21,8 +21,7 @@ public class LearnSpringFrameworkApplication {
 		//GamingConsole game = new MarioGame(); //1
 		//GameRunner runner = new GameRunner(game); //2
 
-		ConfigurableApplicationContext context 
-					= SpringApplication.run(LearnSpringFrameworkApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(LearnSpringFrameworkApplication.class, args);
 
 		GameRunner runner = context.getBean(GameRunner.class);
 		runner.run();

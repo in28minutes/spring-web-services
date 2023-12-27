@@ -12,7 +12,7 @@ public class CourseJdbcRepository {
 	
 	@Autowired
 	private JdbcTemplate springJdbcTemplate;
-	
+
 	private static String INSERT_QUERY = 
 			
 			"""
@@ -48,8 +48,7 @@ public class CourseJdbcRepository {
 	
 	public Course findById(long id) {
 		//ResultSet -> Bean => Row Mapper => 
-		return springJdbcTemplate.queryForObject(SELECT_QUERY,
-				new BeanPropertyRowMapper<>(Course.class), id);
+		return springJdbcTemplate.queryForObject(SELECT_QUERY, new BeanPropertyRowMapper<>(Course.class), id);
 		
 	}
 

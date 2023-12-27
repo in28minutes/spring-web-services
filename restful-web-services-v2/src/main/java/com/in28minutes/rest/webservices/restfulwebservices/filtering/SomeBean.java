@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 //@JsonIgnoreProperties({"field1","field2"})
 @JsonFilter("SomeBeanFilter")
 public class SomeBean {
-	private String field1;
+	private final String field1;
 	
-	private String field2;
+	private final String field2;
 
 	//@JsonIgnore
-	private String field3;
+	private final String field3;
 
 	public SomeBean(String field1, String field2, String field3) {
 		super();

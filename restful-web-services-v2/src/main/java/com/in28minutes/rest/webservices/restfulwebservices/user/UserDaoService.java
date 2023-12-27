@@ -12,7 +12,7 @@ public class UserDaoService {
 	// JPA/Hibernate > Database
 	// UserDaoService > Static List
 	
-	private static List<User> users = new ArrayList<>();
+	private static final List<User> users = new ArrayList<>();
 	
 	private static int usersCount = 0;
 	
@@ -26,7 +26,7 @@ public class UserDaoService {
 		return users;
 	}
 	
-	public User save(User user) {
+	public static User save(User user) {
 		user.setId(++usersCount);
 		users.add(user);
 		return user;
@@ -34,7 +34,10 @@ public class UserDaoService {
 
 	public User findOne(int id) {
 		Predicate<? super User> predicate = user -> user.getId().equals(id); 
-		return users.stream().filter(predicate).findFirst().orElse(null);
+		return users.stream()
+				.filter(predicate)
+				.findFirst()
+				.orElse(null);
 	}
 
 	public void deleteById(int id) {

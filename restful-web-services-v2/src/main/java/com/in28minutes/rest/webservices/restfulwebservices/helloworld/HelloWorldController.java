@@ -17,12 +17,12 @@ public class HelloWorldController {
 		this.messageSource = messageSource;
 	}
 	
-	@GetMapping(path = "/hello-world")
+	@GetMapping("/hello-world")
 	public String helloWorld() {
 		return "Hello World"; 
 	}
 	
-	@GetMapping(path = "/hello-world-bean")
+	@GetMapping("/hello-world-bean")
 	public HelloWorldBean helloWorldBean() {
 		return new HelloWorldBean("Hello World"); 
 	}
@@ -32,12 +32,12 @@ public class HelloWorldController {
 	// /hello-world/path-variable/{name}
 	// /hello-world/path-variable/Ranga
 
-	@GetMapping(path = "/hello-world/path-variable/{name}")
+	@GetMapping("/hello-world/path-variable/{name}")
 	public HelloWorldBean helloWorldPathVariable(@PathVariable String name) {
 		return new HelloWorldBean(String.format("Hello World, %s", name)); 
 	}
 
-	@GetMapping(path = "/hello-world-internationalized")
+	@GetMapping("/hello-world-internationalized")
 	public String helloWorldInternationalized() {
 		Locale locale = LocaleContextHolder.getLocale();
 		return messageSource.getMessage("good.morning.message", null, "Default Message", locale );

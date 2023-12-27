@@ -205,14 +205,14 @@ java.lang.NoClassDefFoundError: jakarta/wsdl/extensions/ExtensibilityElement
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.2.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 	</properties>
 
 	<dependencies>
@@ -1623,14 +1623,14 @@ xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.1</version>
+		<version>3.2.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 	</properties>
 
 	<dependencies>
@@ -2660,7 +2660,7 @@ import com.in28minutes.soap.webservices.soapcoursemanagement.soap.bean.Course;
 public class CourseDetailsService {
 	
 	public enum Status {
-		SUCCESS, FAILURE;
+		SUCCESS, FAILURE
 	}
 
 	private static List<Course> courses = new ArrayList<>();

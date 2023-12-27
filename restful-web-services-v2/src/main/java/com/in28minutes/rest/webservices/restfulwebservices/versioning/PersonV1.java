@@ -1,7 +1,7 @@
 package com.in28minutes.rest.webservices.restfulwebservices.versioning;
 
 public class PersonV1 {
-	private String name;
+	private final String name;
 
 	public PersonV1(String name) {
 		super();
