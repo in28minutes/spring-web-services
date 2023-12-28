@@ -31,3 +31,7 @@ springboot-in-10-steps/*.iml
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 bin
+*.iml
+soap-web-services/src/main/java/META-INF/JAXB/episode_xjc.xjb
+soap-web-services/src/main/java/META-INF/JAXB/episode_xjc_1.xjb
+soap-web-services/src/main/java/META-INF/JAXB/episode_xjc.xjb
