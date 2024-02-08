@@ -1,5 +1,6 @@
 package com.in28minutes.soap.webservices.soapcoursemanagement.soap;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -11,8 +12,8 @@ import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.server.EndpointInterceptor;
 import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
+import org.springframework.ws.soap.security.wss4j2.callback.SimplePasswordValidationCallbackHandler;
 import org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor;
-import org.springframework.ws.soap.security.xwss.callback.SimplePasswordValidationCallbackHandler;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
@@ -71,18 +72,17 @@ public class WebServiceConfig extends WsConfigurerAdapter{
 	public Wss4jSecurityInterceptor securityInterceptor() {
 		Wss4jSecurityInterceptor securityInterceptor = new Wss4jSecurityInterceptor();
 		securityInterceptor.setSecurementActions("UsernameToken");
-		securityInterceptor.setSecurementUsername("user");
-		securityInterceptor.setSecurementPassword("password");
+		securityInterceptor.setValidationCallbackHandler(callbackHandler());
 
 		return securityInterceptor;
 	}
 	
-	//	@Bean
-	//	public SimplePasswordValidationCallbackHandler callbackHandler() {
-	//		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
-	//		handler.setUsersMap(Collections.singletonMap("user", "password"));
-	//		return handler;
-	//	}
+	@Bean
+	public SimplePasswordValidationCallbackHandler callbackHandler() {
+		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
+		handler.setUsersMap(Collections.singletonMap("user", "password"));
+		return handler;
+	}
 
 	// Interceptors.add -> XwsSecurityInterceptor
 	@Override

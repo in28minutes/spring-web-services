@@ -35,3 +35,7 @@ bin
 soap-web-services/src/main/java/META-INF/JAXB/episode_xjc.xjb
 soap-web-services/src/main/java/META-INF/JAXB/episode_xjc_1.xjb
 soap-web-services/src/main/java/META-INF/JAXB/episode_xjc.xjb
+soap-web-services/src/main/java/META-INF/JAXB/episode_xjc_2.xjb
+soap-web-services/src/main/java/META-INF/JAXB/episode_xjc_3.xjb
+soap-web-services/src/main/java/META-INF/JAXB/episode_xjc_4.xjb
+soap-web-services/src/main/java/META-INF/JAXB/episode_xjc_5.xjb
