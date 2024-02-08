@@ -1197,8 +1197,9 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.server.EndpointInterceptor;
+import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
+import org.springframework.ws.soap.security.wss4j2.callback.SimplePasswordValidationCallbackHandler;
 import org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor;
-import org.springframework.ws.soap.security.xwss.callback.SimplePasswordValidationCallbackHandler;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
@@ -1238,16 +1239,34 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
     }
 
+    
+    // https://spring.io/blog/2022/12/02/spring-ws-samples-upgraded-for-spring-boot-3-0
+    // XwsSecurity has been deprecated in JakartaEE 9+
 
     //XwsSecurityInterceptor
+    //	@Bean
+    //	public XwsSecurityInterceptor securityInterceptor(){
+    //		XwsSecurityInterceptor securityInterceptor = new XwsSecurityInterceptor();
+    //		//Callback Handler -> SimplePasswordValidationCallbackHandler
+    //		securityInterceptor.setCallbackHandler(callbackHandler());
+    //		//Security Policy -> securityPolicy.xml
+    //		securityInterceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
+    //		return securityInterceptor;
+    //	}
     @Bean
     public Wss4jSecurityInterceptor securityInterceptor() {
         Wss4jSecurityInterceptor securityInterceptor = new Wss4jSecurityInterceptor();
         securityInterceptor.setSecurementActions("UsernameToken");
-        securityInterceptor.setSecurementUsername("user");
-        securityInterceptor.setSecurementPassword("password");
+        securityInterceptor.setValidationCallbackHandler(callbackHandler());
 
         return securityInterceptor;
+    }
+
+    @Bean
+    public SimplePasswordValidationCallbackHandler callbackHandler() {
+        SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
+        handler.setUsersMap(Collections.singletonMap("user", "password"));
+        return handler;
     }
 
     //Interceptors.add -> XwsSecurityInterceptor
@@ -2639,7 +2658,7 @@ import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.server.EndpointInterceptor;
 import org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor;
-import org.springframework.ws.soap.security.xwss.callback.SimplePasswordValidationCallbackHandler;
+import org.springframework.ws.soap.security.wss4j2.callback.SimplePasswordValidationCallbackHandler;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
