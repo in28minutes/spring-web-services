@@ -29,7 +29,7 @@ public Wss4jSecurityInterceptor securityInterceptor() {
     return securityInterceptor;
 }
 ```
-## Step 3: Modify `SimplePasswordValidationCallbackHandler` package namespace(xwss -> wss4j2) and add the followin bean
+## Step 3: Modify `SimplePasswordValidationCallbackHandler` package namespace(xwss -> wss4j2) and add the following bean
 
 ```java
 import org.springframework.ws.soap.security.wss4j2.callback.SimplePasswordValidationCallbackHandler;
@@ -40,3 +40,5 @@ public SimplePasswordValidationCallbackHandler callbackHandler() {
     return handler;
 }
 ```
+
+Happy Learning @in28minutes
