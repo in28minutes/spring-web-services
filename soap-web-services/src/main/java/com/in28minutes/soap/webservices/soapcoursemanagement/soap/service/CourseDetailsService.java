@@ -15,7 +15,7 @@ public class CourseDetailsService {
 		SUCCESS, FAILURE;
 	}
 
-	private static List<Course> courses = new ArrayList<>();
+	private static final List<Course> courses = new ArrayList<>();
 
 	static {
 		Course course1 = new Course(1, "Spring", "10 Steps");
