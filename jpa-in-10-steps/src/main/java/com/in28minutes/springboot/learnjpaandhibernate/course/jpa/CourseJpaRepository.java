@@ -24,7 +24,7 @@ public class CourseJpaRepository {
 	}
 
 	public void deleteById(long id) {
-		var course = entityManager.find(Course.class, id);
+		Course course = entityManager.find(Course.class, id);
 		entityManager.remove(course);
 	}
 

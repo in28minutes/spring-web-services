@@ -1,5 +1,6 @@
 package com.in28minutes.springboot.learnjpaandhibernate.course;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +16,8 @@ public class CourseCommandLineRunner implements CommandLineRunner{
 //	@Autowired
 //	private CourseJpaRepository repository;
 
-	private final CourseSpringDataJpaRepository repository;
-
-	public CourseCommandLineRunner(CourseSpringDataJpaRepository repository) {
-		this.repository = repository;
-	}
+	@Autowired
+	private CourseSpringDataJpaRepository repository;
 	
 	@Override
 	public void run(String... args) {
