@@ -9,11 +9,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.EnableWs;
-import org.springframework.ws.config.annotation.WsConfigurerAdapter;
+// import org.springframework.ws.config.annotation.WsConfigurerAdapter; // Works for Spring Boot 3
+import org.springframework.ws.config.annotation.WsConfigurer; // For Spring Boot 4
 import org.springframework.ws.server.EndpointInterceptor;
 import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
 import org.springframework.ws.soap.security.wss4j2.callback.SimplePasswordValidationCallbackHandler;
-import org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor;
+// import org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
@@ -23,7 +24,8 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 // Spring Configuration
 @Configuration
-public class WebServiceConfig extends WsConfigurerAdapter{
+// public class WebServiceConfig extends WsConfigurerAdapter{ // Works for Spring Boot 3
+public class WebServiceConfig implements WsConfigurer { // Works for Spring Boot 4
 	// MessageDispatcherServlet
 	// ApplicationContext
 	// url -> /ws/*
