@@ -1,5 +1,6 @@
 package com.in28minutes.springboot.learnjpaandhibernate.course.jpa;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.in28minutes.springboot.learnjpaandhibernate.course.Course;
@@ -12,7 +13,8 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class CourseJpaRepository {
 	
-	@PersistenceContext
+	// @PersistenceContext // for Spring Boot 3
+	@Autowired // works from Spring Boot 4
 	private EntityManager entityManager;
 	
 	public void insert(Course course) {

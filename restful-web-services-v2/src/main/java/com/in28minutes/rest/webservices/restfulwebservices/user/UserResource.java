@@ -37,7 +37,6 @@ public class UserResource {
 	
 	//EntityModel
 	//WebMvcLinkBuilder
-	
 	@GetMapping("/users/{id}")
 	public EntityModel<User> retrieveUser(@PathVariable int id) {
 		User user = service.findOne(id);
@@ -61,7 +60,8 @@ public class UserResource {
 	@PostMapping("/users")
 	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 		
-		User savedUser = service.save(user);
+		// User savedUser = service.save(user);
+		User savedUser = UserDaoService.save(user); // Since it is static member we can access via instance reference
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
 						.path("/{id}")
