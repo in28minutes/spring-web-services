@@ -1,19 +1,19 @@
 package com.in28minutes.rest.webservices.restfulwebservices.filtering;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonView;
 
-//@JsonIgnoreProperties({"field1","field2"})
-@JsonFilter("SomeBeanFilter")
+//@JsonIgnoreProperties({"field1", "field2"})
 public class SomeBean {
-	@JsonView(Views.Public.class)
-	private final String field1;
-	@JsonView(Views.Public.class)
-	private final String field2;
 
-	@JsonView(Views.Public.class)
-	//@JsonIgnore
-	private final String field3;
+	@JsonView(View.View1.class)
+	private String field1;
+
+	@JsonView(View.View2.class)
+	private String field2;
+
+	// @JsonIgnore
+	@JsonView({ View.View1.class, View.View2.class })
+	private String field3;
 
 	public SomeBean(String field1, String field2, String field3) {
 		super();
