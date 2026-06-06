@@ -96,7 +96,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.0</version>
+        <version>4.0.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -162,7 +162,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>4.0.0</version>
+                <version>4.0.6</version>
                 <executions>
                     <execution>
                         <id>xjc</id>
@@ -1522,7 +1522,7 @@ xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.0</version>
+        <version>4.0.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -1586,7 +1586,7 @@ xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>4.0.0</version>
+                <version>4.0.6</version>
                 <executions>
                     <execution>
                         <id>xjc</id>

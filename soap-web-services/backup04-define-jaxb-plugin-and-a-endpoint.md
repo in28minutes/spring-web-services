@@ -48,7 +48,7 @@ xsi:schemaLocation="http://in28minutes.com/courses course-details.xsd">
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.0</version>
+		<version>4.0.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -94,7 +94,7 @@ xsi:schemaLocation="http://in28minutes.com/courses course-details.xsd">
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>4.0.0</version>
+				<version>4.0.6</version>
 				<executions>
 					<execution>
 						<id>xjc</id>
