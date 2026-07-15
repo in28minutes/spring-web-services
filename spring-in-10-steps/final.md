@@ -1,5 +1,5 @@
 <!---
-Current Directory : /Users/ranga/Ranga/git/00.courses/getting-started-for-beginners-v2/spring-framework-in-10-steps
+Current Directory: /Users/ranga/Ranga/git/00.courses/getting-started-for-beginners-v2/spring-framework-in-10-steps
 -->
 
 ## Complete Code Example
@@ -49,7 +49,7 @@ Consider marking one of the beans as @Primary, updating the consumer to accept m
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.6</version>
+		<version>4.1.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.in28minutes.spring</groupId>
