@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-security</artifactId>
-			<version>5.0.0</version>
+			<version>5.0.2</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.security</groupId>
